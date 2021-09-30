@@ -10,8 +10,6 @@ const Hope = () => {
 
     const onSubmit = (e) => {
         firebaseapp.database().ref("test").push(Salary);
-
-
     }
 
     useEffect(() => {
@@ -20,8 +18,6 @@ const Hope = () => {
             console.log(snapshot.val())
             })
     }, []);
-
-
 
     return (
         <div>
