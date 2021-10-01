@@ -1,0 +1,33 @@
+.table1 {
+
+
+    --bs-table-bg: transparent;
+    --bs-table-accent-bg: transparent;
+    --bs-table-striped-color: #212529;
+    --bs-table-striped-bg: rgba(0, 0, 0, 0.05);
+    --bs-table-active-color: #212529;
+    --bs-table-active-bg: rgba(0, 0, 0, 0.1);
+    --bs-table-hover-color: #212529;
+    --bs-table-hover-bg: rgba(0, 0, 0, 0.075);
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #212529;
+    vertical-align: top;
+    border-color: #dee2e6;
+
+
+    display: table;
+        /*border-collapse: unset;*/
+    box-sizing: border-box;
+    text-indent: initial;
+    border-spacing: 2px;
+
+}
+th{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+td{
+    padding-top: 15px;
+    padding-bottom: 15px;
+}

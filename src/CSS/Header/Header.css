@@ -1,0 +1,33 @@
+.navbar.navbar-dark.navbar-expand-md.fixed-top.bg-dark {
+    background-color: #1a2639 !important;
+    opacity: 0.8;
+    position: relative;
+}
+
+.navbar-dark .navbar-nav .nav-link .apple-logo {
+    font-size: 21px;
+    line-height: 0;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: #fff;
+    font-size: 18px;
+}
+.company-name{
+    color: #fff;
+    font-size: 35px;
+    margin-left: -45px;
+    margin-top: 4px;
+}
+#log{
+
+    padding-top: 18px;
+}
+#sign{
+    padding-top: 18px;
+    margin-left: -71px;
+}
+#logoImage{
+    width: 142px;
+    height: 74px;
+}
