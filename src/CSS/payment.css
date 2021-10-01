@@ -1,0 +1,20 @@
+.background-image{
+    background: url("../Images/undraw_Credit_card_payments_re_qboh.png");
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-position-x: right;
+
+}
+.btn-pay{
+
+    width:150px;
+    height: 60%;
+}
+.pad{
+    padding-top: 20px;
+}
+.card{
+    padding-right: 15px ;
+    padding-left: 15px;
+    padding-bottom: 10px;
+}
