@@ -1,6 +1,4 @@
 import React,{useEffect, useState} from 'react';
-import {Link, useHistory} from "react-router-dom";
-// import axios from "axios";
 import AdminSideNav from "../SideNav/AdminSideNav";
 import '../CSS/tableEmployee.css';
 import firebaseapp from "../firebaseDB/firebase";
