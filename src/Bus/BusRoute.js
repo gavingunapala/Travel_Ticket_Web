@@ -5,13 +5,20 @@ import firebaseapp from "../firebaseDB/firebase";
 
 const BusRoute = () => {
 
-    const[name, setname] = useState("");
+    const[list, setlist] = useState([]);
 
     useEffect(() => {
-        const list = firebaseapp.database().ref('journey');
+        const list = firebaseapp.database().ref('BusRoute');
+        const busrouteList =[];
         list.on('value',(snapshot)=>{
-            console.log(snapshot.val())
-            // setname(snapshot.val().name)
+            console.log(snapshot.val());
+            const busroutes = snapshot.val();
+
+            for (let id in busroutes){
+                busrouteList.push(busroutes[id] )
+            }
+            console.log(busrouteList)
+            setlist(busrouteList)
         })
     }, []);
 
@@ -46,9 +53,9 @@ const BusRoute = () => {
                                            id="ipi-table">
                                         <thead className="thead-dark">
                                         <tr>
-                                            <th className="text-center">Route number</th>
+                                            <th className="text-center">Route Number</th>
                                             <th className="text-center">Bus Number</th>
-                                            <th className="text-center">Driver</th>
+                                            <th className="text-center">Driver Name</th>
                                             <th className="text-center">Phone Number</th>
                                             {/*<th className="text-center">Email</th>*/}
                                             {/*<th className="text-center">Password</th>*/}
@@ -63,6 +70,16 @@ const BusRoute = () => {
                                         {/*        return val*/}
                                         {/*    }*/}
                                         {/*}).map((customer) => {*/}
+
+                                        {list.map((b)=>(
+                                            <tr>
+                                                <td>{b.Route}</td>
+                                                <td>{b.BusNo}</td>
+                                                <td>{b.BusDriver}</td>
+                                                <td>{b.PhoneNo}</td>
+                                            </tr>
+                                        ))}
+
                                         {/*    return (*/}
                                         {/*        <tr>*/}
                                         {/*            <td>{customer.Name}</td>*/}
