@@ -9,7 +9,6 @@ const JourneyReport = () => {
 
     const[name, setname] = useState("");
 
-
     useEffect(() => {
         const list = firebaseapp.database().ref('journey');
         list.on('value',(snapshot)=>{
