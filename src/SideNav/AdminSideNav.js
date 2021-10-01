@@ -20,7 +20,7 @@ const AdminSideNav = () => {
                 <ul className="list-unstyled components">
                     <li>
                         <a href="/">a</a>
-                        <a href="/">Bus Route</a>
+                        <a href="/BusRoute">Bus Route</a>
                         <a href="/JourneyReport">Journey Details</a>
                         <a href="/AddCredit">Add Payments</a>
                         <a href="/RoomBookingDashboard">Create Physical Token</a>
@@ -28,7 +28,7 @@ const AdminSideNav = () => {
 
 
 
-                        <a href="/">apply for physical token </a>
+                        <a href="/GetPhysicalToken">apply for physical token </a>
 
                     </li>
                     <li>
