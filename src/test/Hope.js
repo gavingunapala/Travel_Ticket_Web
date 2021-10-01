@@ -56,7 +56,6 @@ const Hope = () => {
                 ))}
                 </table>
             </div>
-
         </div>
     );
 }
