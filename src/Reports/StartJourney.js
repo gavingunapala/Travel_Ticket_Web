@@ -1,10 +1,44 @@
-import React, {useState, useEffect} from "react"
-// import {useHistory} from "react-router-dom";
-// import axios from "axios";
+import React, {useState} from "react"
 import img from '../Images/undraw_logic_n6th.png';
+import firebaseapp from "../firebaseDB/firebase";
 
 //customer
 const StartJourney = () => {
+
+    const[name, setname] = useState("");
+    const[route, setroute] = useState("");
+    const[start, setstart] = useState("");
+    const[destination, setdestination] = useState("null");
+    const[price, setprice] = useState("");
+
+    const nameSetter = (e) => {
+        setname(e.target.value);
+    }
+    const routeSetter = (e) => {
+        setroute(e.target.value);
+    }
+    const startSetter = (e) => {
+        setstart(e.target.value);
+    }
+    const destinationSetter = (e) => {
+        setdestination(e.target.value);
+    }
+    const priceSetter = (e) => {
+        setprice(e.target.value);
+    }
+
+    const onSubmit = (e) => {
+        const d2Ref =firebaseapp.database().ref("journey");
+        const d2 = {
+            Name:name,
+            Route:route,
+            Start:start,
+            Destination:destination,
+            Price:price,
+        };
+        d2Ref.push(d2);
+    }
+
 
     return (
             <div>
@@ -14,31 +48,29 @@ const StartJourney = () => {
                             <div><strong></strong><label></label></div>
                             <div className=" justify-content-center align-items-center">
                                 <div>
-                                    <form method="post" className="card">
+                                    <div className="card">
                                             <br />
                                             <h2 className="text-center">Registration</h2>
                                             <br />
                                             <div className="container   ">
-                                                <div><label>Enter Name</label><input className="form-control" type="text" />
+                                                <div><label>Name</label><input className="form-control" type="text" onChange={nameSetter}/>
                                                 </div>
                                                 <div className="form-group">
-                                                    <div><label>Enter Address</label><input className="form-control" type="text" />
+                                                    <div><label>Route</label><input className="form-control" type="text" onChange={routeSetter}/>
                                                     </div>
-                                                    <div><label>Enter Phone Number</label><input className="form-control"
-                                                         type="Number" /></div>
-                                                    <div><label>Enter NIC Number</label><input className="form-control"
-                                                                                                      type="text" /></div>
-                                                    <div><label>Enter Email</label><input className="form-control"
-                                                                                                     type="text" /></div>
-                                                    <div><label>Enter Password</label><input className="form-control"
-                                                                                          type="text" /></div>
+                                                    <div><label>Start</label><input className="form-control"
+                                                         type="text" onChange={startSetter}/></div>
+                                                    {/*<div><label>Destination</label><input className="form-control"*/}
+                                                    {/*                                                  type="text" onChange={destinationSetter}/></div>*/}
+                                                    <div><label>Price</label><input className="form-control"
+                                                                                    type="Number" onChange={priceSetter}/></div>
                                                     <br/>
-                                                    <button className="btn btn-primary" type="submit">&nbsp;Register</button>
+                                                    <button className="btn btn-primary" type="submit" onClick={onSubmit}>&nbsp;Start Journey</button>
                                                     <br />
                                                     <br />
                                                 </div>
                                             </div>
-                                    </form>
+                                    </div>
                                     </div>
                                 </div>
                             </div>
