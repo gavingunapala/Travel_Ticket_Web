@@ -5,15 +5,65 @@ import firebaseapp from "../firebaseDB/firebase";
 
 const JourneyReport = () => {
 
-    const[name, setname] = useState("");
+    // const[name, setname] = useState("");
+    // const[route, setroute] = useState("");
+    // const[start, setstart] = useState("");
+    // const[destination, setdestination] = useState("null");
+    // const[price, setprice] = useState("");
+    const[list, setlist] = useState([]);
+
+    // const nameSetter = (e) => {
+    //     setname(e.target.value);
+    // }
+    // const routeSetter = (e) => {
+    //     setroute(e.target.value);
+    // }
+    // const startSetter = (e) => {
+    //     setstart(e.target.value);
+    // }
+    // const destinationSetter = (e) => {
+    //     setdestination(e.target.value);
+    // }
+    // const priceSetter = (e) => {
+    //     setprice(e.target.value);
+    // }
+
+    // const onSubmit = (e) => {
+    //     const d2Ref =firebaseapp.database().ref("journey");
+    //     const d2 = {
+    //         Name:name,
+    //         Route:route,
+    //         Start:start,
+    //         Destination:destination,
+    //         Price:price,
+    //     };
+    //     d2Ref.push(d2);
+    // }
 
     useEffect(() => {
         const list = firebaseapp.database().ref('journey');
+        const journeyList =[];
         list.on('value',(snapshot)=>{
-            console.log(snapshot.val())
-            // setname(snapshot.val().name)
+            console.log(snapshot.val());
+            const journeies = snapshot.val();
+
+            for (let id in journeies){
+                journeyList.push(journeies[id] )
+            }
+            console.log(journeyList)
+            setlist(journeyList)
         })
     }, []);
+
+    // const[name, setname] = useState("");
+    //
+    // useEffect(() => {
+    //     const list = firebaseapp.database().ref('journey');
+    //     list.on('value',(snapshot)=>{
+    //         console.log(snapshot.val())
+    //         // setname(snapshot.val().name)
+    //     })
+    // }, []);
 
     return (
         <div>
@@ -47,12 +97,10 @@ const JourneyReport = () => {
                                     <thead className="thead-dark">
                                     <tr>
                                         <th className="text-center">Name</th>
-                                        <th className="text-center col-lg-4">Address</th>
-                                        <th className="text-center">Phone number</th>
-                                        <th className="text-center">NIC Number</th>
-                                        <th className="text-center">Email</th>
-                                        <th className="text-center">Password</th>
-                                        <th className="text-center">Actions</th>
+                                        <th className="text-center col-lg-4">Route</th>
+                                        <th className="text-center">Start</th>
+                                        <th className="text-center">Destination</th>
+                                        <th className="text-center">Price</th>
                                     </tr>
                                     </thead>
                                     <tbody className="text-center">
@@ -62,6 +110,17 @@ const JourneyReport = () => {
                                     {/*    }else if(val.Name.toLowerCase().includes(SearchWord.toLowerCase())||val.NICNumber.toLowerCase().includes(SearchWord.toLowerCase()) ){*/}
                                     {/*        return val*/}
                                     {/*    }*/}
+
+                                    {list.map((j)=>(
+                                        <tr>
+                                            <td>{j.Name}</td>
+                                            <td>{j.Route}</td>
+                                            <td>{j.Start}</td>
+                                            <td>{j.Destination}</td>
+                                            <td>{j.Price}</td>
+                                        </tr>
+                                    ))}
+
                                     {/*}).map((customer) => {*/}
                                     {/*    return (*/}
                                     {/*        <tr>*/}
