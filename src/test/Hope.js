@@ -40,6 +40,8 @@ const Hope = () => {
             })
     }, []);
 
+
+
     return (
         <div>
             <input type={"text"} onChange={SalarySetter}></input>
