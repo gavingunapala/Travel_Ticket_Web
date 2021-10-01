@@ -3,7 +3,13 @@ import firebaseapp from "../firebaseDB/firebase";
 
 const Hope = () => {
     const[Salary, setSalary] = useState("");
+
+    const[aa, setaa] = useState("1111111111");
+    const[ss, setss] = useState("22222222222");
+
     const[list, setlist] = useState([]);
+
+
     const SalarySetter = (e) => {
         setSalary(e.target.value);
     }
@@ -13,9 +19,11 @@ const Hope = () => {
         const d1 = {
             Salary,
             Name : "sakuni kasuni",
+            gg:aa,
+            ss:ss,
         };
         d1Ref.push(d1);
-    }
+           }
 
     useEffect(() => {
         const list = firebaseapp.database().ref('test');
