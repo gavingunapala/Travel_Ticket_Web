@@ -60,8 +60,8 @@ const StartJourney = () => {
                                                     </div>
                                                     <div><label>Start</label><input className="form-control"
                                                          type="text" onChange={startSetter}/></div>
-                                                    {/*<div><label>Destination</label><input className="form-control"*/}
-                                                    {/*                                                  type="text" onChange={destinationSetter}/></div>*/}
+                                                    <div><label>Destination</label><input className="form-control"
+                                                                                                      type="text" onChange={destinationSetter}/></div>
                                                     <div><label>Price</label><input className="form-control"
                                                                                     type="Number" onChange={priceSetter}/></div>
                                                     <br/>
