@@ -24,6 +24,7 @@ const StartJourney = () => {
     }
 
     const onSubmit = (e) => {
+        let id = busDriver;
         const d3Ref =firebaseapp.database().ref("BusRoute");
         const d3 = {
             Route:route,

@@ -1,8 +1,28 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import AdminSideNav from "../SideNav/AdminSideNav";
+import firebaseapp from "../firebaseDB/firebase";
 
 
 const ViewPayment = () =>{
+
+    const[list, setlist] = useState([]);
+
+    useEffect(() => {
+        const list = firebaseapp.database().ref('credit');
+        const paymentList =[];
+        list.on('value',(snapshot)=>{
+            console.log(snapshot.val());
+            const payment = snapshot.val();
+
+            for (let id in payment){
+                paymentList.push(payment[id] )
+            }
+            console.log(paymentList)
+            setlist(paymentList)
+        })
+    }, []);
+
+
     return(
         <div>
             <div className="row1">
@@ -37,44 +57,19 @@ const ViewPayment = () =>{
                                             <th className="text-center">Id</th>
                                             <th className="text-center">Name</th>
                                             <th className="text-center">Price</th>
-                                            <th className="text-center">Token</th>
-                                            {/*<th className="text-center">Email</th>*/}
-                                            {/*<th className="text-center">Password</th>*/}
-                                            {/*<th className="text-center">Actions</th>*/}
+                                            <th className="text-center">Discription</th>
+
                                         </tr>
                                         </thead>
                                         <tbody className="text-center">
-                                        {/*{Customer.filter((val)=>{*/}
-                                        {/*    if(SearchWord ==""){*/}
-                                        {/*        return val*/}
-                                        {/*    }else if(val.Name.toLowerCase().includes(SearchWord.toLowerCase())||val.NICNumber.toLowerCase().includes(SearchWord.toLowerCase()) ){*/}
-                                        {/*        return val*/}
-                                        {/*    }*/}
-                                        {/*}).map((customer) => {*/}
-                                        {/*    return (*/}
-                                        {/*        <tr>*/}
-                                        {/*            <td>{customer.Name}</td>*/}
-                                        {/*            <td>{customer.Address}</td>*/}
-                                        {/*            <td>{customer.PhoneNumber}</td>*/}
-                                        {/*            <td>{customer.NICNumber}</td>*/}
-                                        {/*            <td>{customer.Email}</td>*/}
-                                        {/*            <td>{customer.Password}</td>*/}
-                                        {/*            <br />*/}
-                                        {/*            <Link class="btn btn-success" role="button" to={`UpdateCustomers/${customer._id}`}>*/}
-                                        {/*                <em className="fa fa-edit" id="icon"></em>*/}
-                                        {/*            </Link>*/}
-                                        {/*            <a className="btn btn-danger" id="icon">*/}
-                                        {/*                <em className="fa fa-trash"*/}
-                                        {/*                    onClick={() => {*/}
-                                        {/*                        if (window.confirm("Are you sure you want to delete this Customer?")) {*/}
-                                        {/*                            deleteCustomer(customer._id)*/}
-                                        {/*                        }*/}
-                                        {/*                        ;*/}
-                                        {/*                    }}/></a>*/}
-                                        {/*            <br /><br />*/}
-                                        {/*        </tr>*/}
-                                        {/*    );*/}
-                                        {/*})}*/}
+                                        {list.map((b)=>(
+                                            <tr>
+                                                <td>{b.Name}</td>
+                                                <td>{b.price}</td>
+                                                <td>{b.Phone}</td>
+                                                <td>{b.Expire}</td>
+                                            </tr>
+                                        ))}
                                         </tbody>
                                     </table>
                                     <br/>
