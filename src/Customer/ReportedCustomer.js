@@ -8,7 +8,7 @@ const ReportedCustomers = () =>{
     const[list, setlist] = useState([]);
 
     useEffect(() => {
-        const list = firebaseapp.database().ref('users');
+        const list = firebaseapp.database().ref('LocalPassnger');
         const reportedList =[];
         list.on('value',(snapshot)=>{
             console.log(snapshot.val());
@@ -56,28 +56,30 @@ const ReportedCustomers = () =>{
                                         <thead className="thead-dark">
                                         <tr>
                                             <th className="text-center">name</th>
-                                            <th className="text-center">status</th>
-                                            <th className="text-center">Price</th>
-                                            <th className="text-center">Discription</th>
+                                            <th className="text-center">nic</th>
+                                            <th className="text-center">Account Balance</th>
+                                            <th className="text-center">address</th>
+                                            <th className="text-center">Status</th>
                                             <th className="text-center">Action</th>
 
                                         </tr>
                                         </thead>
                                         <tbody className="text-center">
                                         {list.filter((val)=>{
-                                            if(val.status =="hold"){
+                                            if(val.accStatus =="hold"){
                                             return val
                                         }else{
                                             return null
                                         }
                                         }).map((val)=>(
                                             <tr>
-                                                <td>{val.username}</td>
-                                                <td>{val.status}</td>
+                                                <td>{val.name}</td>
+                                                <td>{val.nic}</td>
                                                 <td>{val.accBalance}</td>
-                                                <td>{val.phone}</td>
-                                                <td><a className="btn btn-success" id="icon">
-                                                        <em className="fa fa-edit"/>
+                                                <td>{val.address}</td>
+                                                <td>{val.accStatus}</td>
+                                                <td><a className="btn btn-success" id="icon" href={`/ReleaseAccount/${val.name}`}>
+                                                        <em className="fa fa-edit" />
                                                     </a>
                                                 </td>
                                             </tr>

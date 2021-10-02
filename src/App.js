@@ -16,6 +16,7 @@ import ViewAllTokenApplyed from "./Customer/ViewAllTokenApplyed";
 import ViewRoute from "./route/ViewRoute";
 import ViewOneBusOnRoute from "./Bus/ViewOneBusOnRoute";
 import VisualFeedback from "./Reports/VisualFeedback";
+import ReleaseAccount from "./Customer/ReleaseAccount";
 
 
 function App() {
@@ -38,6 +39,7 @@ function App() {
 
 
         <Route exact path="/ViewOneBusOnRoute/:id" component={ViewOneBusOnRoute}/>
+        <Route exact path="/ReleaseAccount/:id" component={ReleaseAccount}/>
 
 
 
