@@ -11,6 +11,7 @@ import AddCredit from "./Payment/AddCredit";
 import GetPhysicalToken from "./Customer/GetPhysicalToken";
 import BusRoute from "./Bus/BusRoute";
 import AddBusRoute from "./Bus/AddBusRoute";
+import VisualFeedback from "./Reports/VisualFeedback";
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
         <Route exact path="/GetPhysicalToken" component={GetPhysicalToken}/>
         <Route exact path="/BusRoute" component={BusRoute}/>
         <Route exact path="/AddBusRoute" component={AddBusRoute}/>
+        <Route exact path="/VisualFeedback" component={VisualFeedback}/>
 
 
     </div>
