@@ -58,10 +58,6 @@ const ViewAllTokenApplyed = () => {
                             <span className="counter pull-right"></span>
                             <br/><br/>
                         </div>
-                        <a href="/" className="btn btn-primary" role="button">
-                            Customer Home
-                        </a>
-                        <a className="btn btn-success btngena" type="submit">Generate Report</a>
                         <br /><br />
                         <div className="row1">
                             <div className="col-12">
@@ -71,11 +67,11 @@ const ViewAllTokenApplyed = () => {
                                         <thead className="thead-dark">
                                         <tr>
                                             <th className="text-center">Name</th>
-                                            <th className="text-center col-lg-4">Route</th>
+                                            <th className="text-center ">Phone</th>
+                                            <th className="text-center">Nic</th>
+                                            <th className="text-center">Route</th>
                                             <th className="text-center">Start</th>
-                                            <th className="text-center">Destination</th>
-                                            <th className="text-center">Price</th>
-                                            <th className="text-center">Action</th>
+                                            <th className="text-center">Distination</th>
                                         </tr>
                                         </thead>
                                         <tbody className="text-center">
@@ -89,42 +85,13 @@ const ViewAllTokenApplyed = () => {
                                         {list.map((j)=>(
                                             <tr id={"UserToken"}>
                                                 <td>{j.Name}</td>
+                                                <td>{j.Phone}</td>
+                                                <td>{j.Nic}</td>
                                                 <td>{j.Route}</td>
                                                 <td>{j.Start}</td>
-                                                <td>{j.Destination}</td>
-                                                <td>{j.Price}</td>
-                                                <td><a className="btn btn-success" id="icon" onClick={genaratePDF}>
-                                                    <em className="fa fa-edit"/>
-                                                </a>
-                                                </td>
+                                                <td>{j.Distination}</td>
                                             </tr>
                                         ))}
-
-                                        {/*}).map((customer) => {*/}
-                                        {/*    return (*/}
-                                        {/*        <tr>*/}
-                                        {/*            <td>{customer.Name}</td>*/}
-                                        {/*            <td>{customer.Address}</td>*/}
-                                        {/*            <td>{customer.PhoneNumber}</td>*/}
-                                        {/*            <td>{customer.NICNumber}</td>*/}
-                                        {/*            <td>{customer.Email}</td>*/}
-                                        {/*            <td>{customer.Password}</td>*/}
-                                        {/*            <br />*/}
-                                        {/*            <Link class="btn btn-success" role="button" to={`UpdateCustomers/${customer._id}`}>*/}
-                                        {/*                <em className="fa fa-edit" id="icon"></em>*/}
-                                        {/*            </Link>*/}
-                                        {/*            <a className="btn btn-danger" id="icon">*/}
-                                        {/*                <em className="fa fa-trash"*/}
-                                        {/*                    onClick={() => {*/}
-                                        {/*                        if (window.confirm("Are you sure you want to delete this Customer?")) {*/}
-                                        {/*                            deleteCustomer(customer._id)*/}
-                                        {/*                        }*/}
-                                        {/*                        ;*/}
-                                        {/*                    }}/></a>*/}
-                                        {/*            <br /><br />*/}
-                                        {/*        </tr>*/}
-                                        {/*    );*/}
-                                        {/*})}*/}
                                         </tbody>
                                     </table>
                                     <br/>
