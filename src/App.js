@@ -11,6 +11,7 @@ import GetPhysicalToken from "./Customer/GetPhysicalToken";
 import BusRoute from "./Bus/BusRoute";
 import AddBusRoute from "./Bus/AddBusRoute";
 import ViewPayment from "./Payment/ViewPayment";
+import ReportedCustomers from "./Customer/ReportedCustomer";
 
 
 function App() {
@@ -27,6 +28,8 @@ function App() {
         <Route exact path="/GetPhysicalToken" component={GetPhysicalToken}/>
         <Route exact path="/BusRoute" component={BusRoute}/>
         <Route exact path="/AddBusRoute" component={AddBusRoute}/>
+        <Route exact path="/ReportedCustomers" component={ReportedCustomers}/>
+
 
 
     </div>

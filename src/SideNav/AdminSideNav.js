@@ -24,7 +24,7 @@ const AdminSideNav = () => {
                         <a href="/JourneyReport">Journey Details</a>
                         <a href="/ViewPayment">Payments</a>
                         <a href="/RoomBookingDashboard">Create Physical Token</a>
-                        <a href="/PaymentView">Reported Passengers </a>
+                        <a href="/ReportedCustomers">Reported Passengers </a>
                         <a href="/GetPhysicalToken">apply for physical token </a>
 
                     </li>
