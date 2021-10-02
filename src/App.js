@@ -15,6 +15,7 @@ import ReportedCustomers from "./Customer/ReportedCustomer";
 import ViewAllTokenApplyed from "./Customer/ViewAllTokenApplyed";
 import ViewRoute from "./route/ViewRoute";
 import ViewOneBusOnRoute from "./Bus/ViewOneBusOnRoute";
+import VisualFeedback from "./Reports/VisualFeedback";
 
 
 function App() {
@@ -41,6 +42,7 @@ function App() {
 
 
 
+        <Route exact path="/VisualFeedback" component={VisualFeedback}/>
 
 
     </div>
