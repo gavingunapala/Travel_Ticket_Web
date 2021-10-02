@@ -5,6 +5,20 @@ import firebaseapp from "../firebaseDB/firebase";
 //customer
 const VisualFeedback = () => {
 
+    let total;
+
+    // const calculate =(maxdis,setkm)=>{
+    //     // console.log(a)
+    //     // console.log(b)
+    //     // console.log(a*b/100);
+    //     total = maxdis * setkm ;
+    //     // if(total >= AccountBalance){
+    //     //
+    //     // } else {
+    //     //
+    //     // }
+    // }
+
     // const[name, setname] = useState("");
     // const[route, setroute] = useState("");
     // const[start, setstart] = useState("");
@@ -39,22 +53,88 @@ const VisualFeedback = () => {
     //     d2Ref.push(d2);
     // }
 
+    // const[list, setlist] = useState([]);
+    //
+    // useEffect(() => {
+    //     const list = firebaseapp.database().ref('Route');
+    //     const routeList =[];
+    //     list.on('value',(snapshot)=>{
+    //         console.log(snapshot.val());
+    //         const routes = snapshot.val();
+    //
+    //         for (let id in routes){
+    //             routeList.push(routes[id] )
+    //         }
+    //         console.log(routeList)
+    //         setlist(routeList)
+    //     })
+    // }, []);
+
     const[list, setlist] = useState([]);
 
+    const[maxdis, setmasdis] = useState("");
+    const[setkm, setsetkm] = useState("");
+
+    const[value, setvalue] = useState("R002");
+    console.log(value)
+    const startSetter = (e) => {
+        setvalue(e.target.value);
+    }
+
     useEffect(() => {
-        const list = firebaseapp.database().ref('Route');
-        const routeList =[];
+        console.log(value)
+        const list = firebaseapp.database().ref('Route').child(value);
+        const journeyList =[];
+        // const BusesList =[];
+
         list.on('value',(snapshot)=>{
             console.log(snapshot.val());
-            const routes = snapshot.val();
-
-            for (let id in routes){
-                routeList.push(routes[id] )
-            }
-            console.log(routeList)
-            setlist(routeList)
+            const journeies = snapshot.val();
+            console.log(snapshot.val().RouteID)
+            setmasdis(snapshot.val().MaximumDistance)
+            setsetkm(snapshot.val().FarePerkm)
+            // for (let id in journeies){
+            //     journeyList.push(journeies[id] )
+            //
+            // }
+            console.log(journeyList)
+            setlist(journeyList)
         })
-    }, []);
+        // total = maxdis * setkm ;
+    }, [value]);
+
+
+
+    // function changevalue(){
+    //     if(value == "R001"){
+    //         setvalue("R001")
+    //     } else if(value == "R002"){
+    //         setvalue("R002")
+    //     }else if(value == "R003"){
+    //         setvalue("R003")
+    //     }
+    // }
+
+    // const valuechange = () =>{
+    //     console.log(value)
+    //     if(){
+    //
+    //     }
+    // }
+
+    //
+    // cost val = Route;
+    //
+    // const valuechange =()=>{
+    //     if(val = "R001"){
+    //         sets("100")
+    //     }else if(val = "R002"){
+    //         sets("200")
+    //     }
+    //     else if (){
+    //
+    //     }
+    // }
 
 
     return (
@@ -73,37 +153,30 @@ const VisualFeedback = () => {
                                     <div><label>Name</label><input className="form-control" type="text" />
                                     </div>
                                     <div className="form-group">
-                                        <div><label>Account Balance</label><input className="form-control" type="text" />
+                                        <div><label>AccountBalance</label><input className="form-control" type="text" />
                                         </div>
                                         <div><label>Location</label><input className="form-control"
                                                                         type="text" /></div>
                                         <div><label htmlFor="type">RouteID</label>
                                             <select className="form-control"
                                                     name="type"
-                                                    id="type" >
+                                                    id="type" onChange={startSetter}>
                                                 <option>Choose</option>
-                                                <option>R001</option>
-                                                <option>R002</option>
-                                                <option>R003</option>
-                                                <option>R004</option>
-                                                <option>R005</option>
+                                                <option value={"R001"}>R001</option>
+                                                <option value={"R002"}>R002</option>
+                                                <option value={"R003"}>R003</option>
+                                                <option value={"R004"}>R004</option>
+                                                <option value={"R005"}>R005</option>
                                             </select>
                                         </div>
                                         <div><label>MaximumDistance</label><input className="form-control"
-                                                                        type="Number" placeholder={Route.R001}/></div>
+                                                                        type="Number"  value={maxdis}/></div>
                                         <div><label>FarePerkm</label><input className="form-control"
-                                                                                  type="Number"/></div>
+                                                                                  type="Number" value={setkm}/></div>
 
-                                        {list.map((j)=>(
-                                            <tr>
-                                                <td>{j.R001.RouteID}</td>
-                                                <td>{j.MaximumDistance}</td>
-                                                <td>{j.FarePerkm}</td>
-                                            </tr>
-                                        ))}
 
                                         <div><label>Total Price for distance</label><input className="form-control"
-                                                                            type="Number" /></div>
+                                                                            type="Number"/></div>
                                         <br/>
                                         <button className="btn btn-primary" type="submit" >&nbsp;Start Journey</button>
                                         <button className="btn btn-warning" type="submit" >&nbsp;Only you </button>
