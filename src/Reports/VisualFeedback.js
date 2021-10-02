@@ -1,91 +1,34 @@
 import React, {useEffect, useState} from "react"
 import img from '../Images/undraw_logic_n6th.png';
 import firebaseapp from "../firebaseDB/firebase";
+import {useHistory} from "react-router-dom";
 
 //customer
 const VisualFeedback = () => {
 
-    let total;
-
-    // const calculate =(maxdis,setkm)=>{
-    //     // console.log(a)
-    //     // console.log(b)
-    //     // console.log(a*b/100);
-    //     total = maxdis * setkm ;
-    //     // if(total >= AccountBalance){
-    //     //
-    //     // } else {
-    //     //
-    //     // }
-    // }
-
-    // const[name, setname] = useState("");
-    // const[route, setroute] = useState("");
-    // const[start, setstart] = useState("");
-    // const[destination, setdestination] = useState("null");
-    // const[price, setprice] = useState("");
-    //
-    // const nameSetter = (e) => {
-    //     setname(e.target.value);
-    // }
-    // const routeSetter = (e) => {
-    //     setroute(e.target.value);
-    // }
-    // const startSetter = (e) => {
-    //     setstart(e.target.value);
-    // }
-    // const destinationSetter = (e) => {
-    //     setdestination(e.target.value);
-    // }
-    // const priceSetter = (e) => {
-    //     setprice(e.target.value);
-    // }
-    //
-    // const onSubmit = (e) => {
-    //     const d2Ref =firebaseapp.database().ref("journey");
-    //     const d2 = {
-    //         Name:name,
-    //         Route:route,
-    //         Start:start,
-    //         Destination:destination,
-    //         Price:price,
-    //     };
-    //     d2Ref.push(d2);
-    // }
-
-    // const[list, setlist] = useState([]);
-    //
-    // useEffect(() => {
-    //     const list = firebaseapp.database().ref('Route');
-    //     const routeList =[];
-    //     list.on('value',(snapshot)=>{
-    //         console.log(snapshot.val());
-    //         const routes = snapshot.val();
-    //
-    //         for (let id in routes){
-    //             routeList.push(routes[id] )
-    //         }
-    //         console.log(routeList)
-    //         setlist(routeList)
-    //     })
-    // }, []);
-
     const[list, setlist] = useState([]);
-
+    const history = useHistory();
     const[maxdis, setmasdis] = useState("");
     const[setkm, setsetkm] = useState("");
+    const [state, setState] = useState(true);
+    const[acc, setacc] = useState("");
+    const[total, settotal] = useState("");
+
+    const accSetter = (e) => {
+        setacc(e.target.value);
+    }
 
     const[value, setvalue] = useState("R002");
     console.log(value)
     const startSetter = (e) => {
         setvalue(e.target.value);
     }
-
     useEffect(() => {
         console.log(value)
         const list = firebaseapp.database().ref('Route').child(value);
         const journeyList =[];
         // const BusesList =[];
+        settotal(setkm*maxdis)
 
         list.on('value',(snapshot)=>{
             console.log(snapshot.val());
@@ -100,42 +43,26 @@ const VisualFeedback = () => {
             console.log(journeyList)
             setlist(journeyList)
         })
-        // total = maxdis * setkm ;
-    }, [value]);
+    }, [value,acc]);
 
-
-
-    // function changevalue(){
-    //     if(value == "R001"){
-    //         setvalue("R001")
-    //     } else if(value == "R002"){
-    //         setvalue("R002")
-    //     }else if(value == "R003"){
-    //         setvalue("R003")
-    //     }
+    // const routeChange = () => {
+    //     let path = `/Payment`;
+    //     history.push(path);
     // }
 
-    // const valuechange = () =>{
-    //     console.log(value)
-    //     if(){
-    //
-    //     }
-    // }
 
-    //
-    // cost val = Route;
-    //
-    // const valuechange =()=>{
-    //     if(val = "R001"){
-    //         sets("100")
-    //     }else if(val = "R002"){
-    //         sets("200")
-    //     }
-    //     else if (){
-    //
-    //     }
-    // }
 
+    const changestate = () => {
+        if(acc >= total){
+            console.log(total)
+            setState(false)
+        }else{
+            console.log(total)
+            setState(true)
+        }
+        // let path = `/Payment`;
+        // history.push(path);
+    }
 
     return (
         <div>
@@ -153,7 +80,7 @@ const VisualFeedback = () => {
                                     <div><label>Name</label><input className="form-control" type="text" />
                                     </div>
                                     <div className="form-group">
-                                        <div><label>AccountBalance</label><input className="form-control" type="text" />
+                                        <div><label>AccountBalance</label><input className="form-control" type="Number" onChange={accSetter}/>
                                         </div>
                                         <div><label>Location</label><input className="form-control"
                                                                         type="text" /></div>
@@ -169,6 +96,7 @@ const VisualFeedback = () => {
                                                 <option value={"R005"}>R005</option>
                                             </select>
                                         </div>
+
                                         <div><label>MaximumDistance</label><input className="form-control"
                                                                         type="Number"  value={maxdis}/></div>
                                         <div><label>FarePerkm</label><input className="form-control"
@@ -176,10 +104,27 @@ const VisualFeedback = () => {
 
 
                                         <div><label>Total Price for distance</label><input className="form-control"
-                                                                            type="Number"/></div>
+                                                                            type="Number" value={(setkm*maxdis)}/></div>
+
                                         <br/>
-                                        <button className="btn btn-primary" type="submit" >&nbsp;Start Journey</button>
-                                        <button className="btn btn-warning" type="submit" >&nbsp;Only you </button>
+                                        {/*disabled={state}*/}
+                                        <div className="row">
+                                            <div className="col-md-12 text-center content-right">
+                                                <button className="btn btn-success form-btn" onClick={changestate}
+                                                        type="submit">Click to check Account Balance
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                        <div className="row">
+                                            <div className="col-md-12 text-center content-right">
+                                                <button className="btn btn-success form-btn" disabled={state} onClick={changestate}
+                                                        type="submit">Start Journey
+                                                </button>
+                                            </div>
+                                        </div>
+
+
                                         <br />
                                         <br />
                                     </div>
