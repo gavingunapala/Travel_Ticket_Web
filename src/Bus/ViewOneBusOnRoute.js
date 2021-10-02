@@ -10,13 +10,13 @@ const ViewOneBusOnRoute = () => {
     const { id} = useParams();
     console.log(id)
     const[list, setlist] = useState([]);
+    const[jlist, setjlist] = useState([]);
 
 
 
     useEffect(() => {
         const list = firebaseapp.database().ref('Route').child(id).child('Buses');
         const journeyList =[];
-        const BusesList =[];
 
 
         list.on('value',(snapshot)=>{
@@ -40,6 +40,23 @@ const ViewOneBusOnRoute = () => {
         //     console.log(journeyList)
         //     setbus(busList)
         // })
+
+
+        const jlist = firebaseapp.database().ref('Route').child(id).child('Trips');
+        const TripList =[];
+
+
+        jlist.on('value',(snapshot)=>{
+            console.log(snapshot.val());
+            const journey = snapshot.val();
+
+            for (let id in journey){
+                TripList.push(journey[id] )
+
+            }
+            console.log(TripList)
+            setjlist(TripList)
+        })
 
 
     }, []);
@@ -117,6 +134,25 @@ const ViewOneBusOnRoute = () => {
                                         </tbody>
                                     </table>
                                     <br/>
+
+                                    <table className="table1  table-hover table-bordered table-striped  tablesorter"
+                                           id="ipi-table">
+                                        <thead className="thead-dark">
+                                        <tr>
+                                            <th className="text-center ">Trip</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody className="text-center">
+                                        {jlist.map((v)=>(
+                                            <tr>
+                                                <td>{v.TripName}</td>
+                                            </tr>
+                                        ))}
+
+
+
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>
