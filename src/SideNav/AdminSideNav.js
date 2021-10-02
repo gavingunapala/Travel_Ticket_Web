@@ -22,13 +22,12 @@ const AdminSideNav = () => {
                         <a href="/">a</a>
                         <a href="/BusRoute">Bus Route</a>
                         <a href="/JourneyReport">Journey Details</a>
-                        <a href="/AddCredit">Add Payments</a>
-                        <a href="/RoomBookingDashboard">Create Physical Token</a>
-                        <a href="/PaymentView">Reported Passengers </a>
-
-
-
+                        <a href="/ViewPayment">Payments</a>
+                        <a href="/ViewAllTokenApplyed">Create Physical Token</a>
+                        <a href="/ReportedCustomers">Reported Passengers </a>
                         <a href="/GetPhysicalToken">apply for physical token </a>
+
+                        <a href="/ViewRoute">ViewRoute </a>
 
                     </li>
                     <li>
