@@ -12,6 +12,9 @@ import BusRoute from "./Bus/BusRoute";
 import AddBusRoute from "./Bus/AddBusRoute";
 import ViewPayment from "./Payment/ViewPayment";
 import ReportedCustomers from "./Customer/ReportedCustomer";
+import ViewAllTokenApplyed from "./Customer/ViewAllTokenApplyed";
+import ViewRoute from "./route/ViewRoute";
+import ViewOneBusOnRoute from "./Bus/ViewOneBusOnRoute";
 
 
 function App() {
@@ -29,6 +32,14 @@ function App() {
         <Route exact path="/BusRoute" component={BusRoute}/>
         <Route exact path="/AddBusRoute" component={AddBusRoute}/>
         <Route exact path="/ReportedCustomers" component={ReportedCustomers}/>
+        <Route exact path="/ViewAllTokenApplyed" component={ViewAllTokenApplyed}/>
+        <Route exact path="/ViewRoute" component={ViewRoute}/>
+
+
+        <Route exact path="/ViewOneBusOnRoute/:id" component={ViewOneBusOnRoute}/>
+
+
+
 
 
 

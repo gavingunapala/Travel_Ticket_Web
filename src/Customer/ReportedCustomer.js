@@ -59,6 +59,7 @@ const ReportedCustomers = () =>{
                                             <th className="text-center">status</th>
                                             <th className="text-center">Price</th>
                                             <th className="text-center">Discription</th>
+                                            <th className="text-center">Action</th>
 
                                         </tr>
                                         </thead>
@@ -75,6 +76,10 @@ const ReportedCustomers = () =>{
                                                 <td>{val.status}</td>
                                                 <td>{val.accBalance}</td>
                                                 <td>{val.phone}</td>
+                                                <td><a className="btn btn-success" id="icon">
+                                                        <em className="fa fa-edit"/>
+                                                    </a>
+                                                </td>
                                             </tr>
                                         ))}
                                         </tbody>

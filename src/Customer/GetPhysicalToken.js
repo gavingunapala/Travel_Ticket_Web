@@ -30,7 +30,7 @@ const GetPhysicalToken = () => {
     }
 
     const onSubmit = (e) => {
-        const d2Ref =firebaseapp.database().ref("journey");
+        const d2Ref =firebaseapp.database().ref("Token");
         const d2 = {
             Name:name,
             Route:route,
@@ -41,19 +41,19 @@ const GetPhysicalToken = () => {
         d2Ref.push(d2);
     }
 
-    const genaratePDF=()=> {
-        let doc = new jsPDF('p', 'pt', 'a4');
-        doc.html(document.querySelector('#UserToken'), {
-            callback: function (doc) {
-                doc.save('Employee Report.pdf');
-            },
-            margin: [60, 60, 60, 60],
-            x: 32,
-            y: 32
-        });
-
-    }
-    const[buttonstatus, setbuttonStat] = useState(false);
+    // const genaratePDF=()=> {
+    //     let doc = new jsPDF('p', 'pt', 'a4');
+    //     doc.html(document.querySelector('#UserToken'), {
+    //         callback: function (doc) {
+    //             doc.save('Employee Report.pdf');
+    //         },
+    //         margin: [60, 60, 60, 60],
+    //         x: 32,
+    //         y: 32
+    //     });
+    //
+    // }
+    // const[buttonstatus, setbuttonStat] = useState(false);
     return (
         <div>
             <div className={'body'} >
@@ -122,7 +122,7 @@ const GetPhysicalToken = () => {
                                             <div>
                                                 <label>Totle price</label><br/><input className="form-control" type="number"/>
                                             </div><br />
-                                        <botton className="btn btn-success" role="button" id={"generate"} onClick={genaratePDF}>Pay</botton>
+                                        <botton className="btn btn-success" role="button" id={"generate"} onClick={onSubmit} >Pay</botton>
                                             {/*<div className="col-sm-2 pad">*/}
                                             {/*    /!*<center>*!/*/}
                                             {/*    /!*    <button type="button " className="btn btn-primary btn-pay" >Pay</button>*!/*/}
@@ -139,7 +139,7 @@ const GetPhysicalToken = () => {
                         </div><br/>
                     </div>
 
-                    <botton class="btn btn-success" role="button" id={"generate"} onClick={genaratePDF} >Generate token</botton>
+                    {/*<botton class="btn btn-success" role="button" id={"generate"} onClick={genaratePDF} >Generate token</botton>*/}
                 </div>
 
             </div>
