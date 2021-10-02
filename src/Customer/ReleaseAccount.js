@@ -4,6 +4,7 @@ import {useParams} from "react-router-dom";
 import img from "../Images/undraw_logic_n6th.png";
 
 
+
 const ReleaseAccount = () =>{
 
     const { id} = useParams();
@@ -44,11 +45,12 @@ const ReleaseAccount = () =>{
 
     const onSubmit = (e) => {
         const d2Ref =firebaseapp.database().ref('LocalPassnger').child(id);
-        const d2 = {
-            accStatus:status,
-
-        };
-        d2Ref.push(d2);
+        // const d2 = {
+        //
+        // };
+        d2Ref.update({
+            accStatus: "activate",
+        });
         alert("added");
 
     }
