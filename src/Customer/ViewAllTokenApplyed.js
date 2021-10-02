@@ -2,26 +2,43 @@ import React,{useEffect, useState} from 'react';
 import AdminSideNav from "../SideNav/AdminSideNav";
 import '../CSS/tableEmployee.css';
 import firebaseapp from "../firebaseDB/firebase";
+import jsPDF from "jspdf";
 
-const BusRoute = () => {
+const ViewAllTokenApplyed = () => {
+
 
     const[list, setlist] = useState([]);
 
+
+
     useEffect(() => {
-        const list = firebaseapp.database().ref('BusRoute');
-        const busrouteList =[];
+        const list = firebaseapp.database().ref('Token');
+        const journeyList =[];
         list.on('value',(snapshot)=>{
             console.log(snapshot.val());
-            const busroutes = snapshot.val();
+            const journeies = snapshot.val();
 
-            for (let id in busroutes){
-                busrouteList.push(busroutes[id] )
+            for (let id in journeies){
+                journeyList.push(journeies[id] )
             }
-            console.log(busrouteList)
-            setlist(busrouteList)
+            console.log(journeyList)
+            setlist(journeyList)
         })
     }, []);
 
+
+    const genaratePDF=()=> {
+        let doc = new jsPDF('p', 'pt', 'a4');
+        doc.html(document.querySelector('#UserToken'), {
+            callback: function (doc) {
+                doc.save('Employee Report.pdf');
+            },
+            margin: [60, 60, 60, 60],
+            x: 32,
+            y: 32
+        });
+
+    }
     return (
         <div>
             <div className="row1">
@@ -41,10 +58,10 @@ const BusRoute = () => {
                             <span className="counter pull-right"></span>
                             <br/><br/>
                         </div>
-                        <a href="/AddBusRoute" className="btn btn-primary" role="button">
-                            Add Bus to Route
+                        <a href="/" className="btn btn-primary" role="button">
+                            Customer Home
                         </a>
-                        <a  className="btn btn-success btngena"  type="submit">Bus Root</a>
+                        <a className="btn btn-success btngena" type="submit">Generate Report</a>
                         <br /><br />
                         <div className="row1">
                             <div className="col-12">
@@ -53,13 +70,12 @@ const BusRoute = () => {
                                            id="ipi-table">
                                         <thead className="thead-dark">
                                         <tr>
-                                            <th className="text-center">Route Number</th>
-                                            <th className="text-center">Bus Number</th>
-                                            <th className="text-center">Driver Name</th>
-                                            <th className="text-center">Phone Number</th>
-                                            {/*<th className="text-center">Email</th>*/}
-                                            {/*<th className="text-center">Password</th>*/}
-                                            {/*<th className="text-center">Actions</th>*/}
+                                            <th className="text-center">Name</th>
+                                            <th className="text-center col-lg-4">Route</th>
+                                            <th className="text-center">Start</th>
+                                            <th className="text-center">Destination</th>
+                                            <th className="text-center">Price</th>
+                                            <th className="text-center">Action</th>
                                         </tr>
                                         </thead>
                                         <tbody className="text-center">
@@ -69,17 +85,22 @@ const BusRoute = () => {
                                         {/*    }else if(val.Name.toLowerCase().includes(SearchWord.toLowerCase())||val.NICNumber.toLowerCase().includes(SearchWord.toLowerCase()) ){*/}
                                         {/*        return val*/}
                                         {/*    }*/}
-                                        {/*}).map((customer) => {*/}
 
-                                        {list.map((b)=>(
-                                            <tr>
-                                                <td>{b.Route}</td>
-                                                <td>{b.BusNo}</td>
-                                                <td>{b.BusDriver}</td>
-                                                <td>{b.PhoneNo}</td>
+                                        {list.map((j)=>(
+                                            <tr id={"UserToken"}>
+                                                <td>{j.Name}</td>
+                                                <td>{j.Route}</td>
+                                                <td>{j.Start}</td>
+                                                <td>{j.Destination}</td>
+                                                <td>{j.Price}</td>
+                                                <td><a className="btn btn-success" id="icon" onClick={genaratePDF}>
+                                                    <em className="fa fa-edit"/>
+                                                </a>
+                                                </td>
                                             </tr>
                                         ))}
 
+                                        {/*}).map((customer) => {*/}
                                         {/*    return (*/}
                                         {/*        <tr>*/}
                                         {/*            <td>{customer.Name}</td>*/}
@@ -115,4 +136,4 @@ const BusRoute = () => {
         </div>
     )
 }
-export default BusRoute;
+export default ViewAllTokenApplyed;
