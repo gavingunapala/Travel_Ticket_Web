@@ -24,13 +24,12 @@ const StartJourney = () => {
     }
 
     const onSubmit = (e) => {
-        let id = busDriver;
-        const d3Ref =firebaseapp.database().ref("BusRoute");
+        const d3Ref =firebaseapp.database().ref("Bus");
         const d3 = {
             Route:route,
-            BusNo:busNo,
-            BusDriver:busDriver,
-            PhoneNo:phoneNo,
+            BusID:busNo,
+            NoofSeats:busDriver,
+            BusType:phoneNo,
         };
         d3Ref.push(d3);
     }
@@ -52,11 +51,11 @@ const StartJourney = () => {
                                     <div><label>Route</label><input className="form-control" type="text" onChange={routeSetter}/>
                                     </div>
                                     <div className="form-group">
-                                        <div><label>Bus Number</label><input className="form-control" type="text" onChange={busNoSetter}/>
+                                        <div><label>Bus ID</label><input className="form-control" type="text" onChange={busNoSetter}/>
                                         </div>
-                                        <div><label>Bus Driver</label><input className="form-control"
-                                                                        type="text" onChange={busDriverSetter}/></div>
-                                        <div><label>Phone Number</label><input className="form-control"
+                                        <div><label>No of Seats</label><input className="form-control"
+                                                                        type="number" onChange={busDriverSetter}/></div>
+                                        <div><label>Bus Type</label><input className="form-control"
                                                                               type="text" onChange={phoneNoSetter}/></div>
                                         <br/>
                                         <button className="btn btn-primary" type="submit" onClick={onSubmit}>&nbsp;Add Bus Route</button>
