@@ -26,6 +26,7 @@ const AdminSideNav = () => {
                         <a href="/ViewAllTokenApplyed">Create Physical Token</a>
                         <a href="/ReportedCustomers">Reported Passengers </a>
                         <a href="/GetPhysicalToken">apply for physical token </a>
+                        <a href="/PassengerComplain">Passenger Complain </a>
 
                         <a href="/ViewRoute">ViewRoute </a>
 

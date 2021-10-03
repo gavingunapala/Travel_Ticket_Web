@@ -16,6 +16,7 @@ import ViewAllTokenApplyed from "./Customer/ViewAllTokenApplyed";
 import ViewRoute from "./route/ViewRoute";
 import ViewOneBusOnRoute from "./Bus/ViewOneBusOnRoute";
 import VisualFeedback from "./Reports/VisualFeedback";
+import PassengerComplain from "./Reports/PassengerComplain";
 
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
         <Route exact path="/ReportedCustomers" component={ReportedCustomers}/>
         <Route exact path="/ViewAllTokenApplyed" component={ViewAllTokenApplyed}/>
         <Route exact path="/ViewRoute" component={ViewRoute}/>
+        <Route exact path="/PassengerComplain" component={PassengerComplain}/>
 
 
         <Route exact path="/ViewOneBusOnRoute/:id" component={ViewOneBusOnRoute}/>
