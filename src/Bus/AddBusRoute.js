@@ -26,7 +26,7 @@ const StartJourney = () => {
     const onSubmit = (e) => {
         const d3Ref =firebaseapp.database().ref("Bus");
         const d3 = {
-            Route:route,
+            RouteID:route,
             BusID:busNo,
             NoofSeats:busDriver,
             BusType:phoneNo,

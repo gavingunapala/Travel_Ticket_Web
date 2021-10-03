@@ -17,7 +17,14 @@ const ViewAllTokenApplyed = () => {
         list.on('value',(snapshot)=>{
             console.log(snapshot.val());
             const journeies = snapshot.val();
-
+            // if (journeies !== null) {
+            //     Object.keys(journeies).forEach(key => {
+            //         // The ID is the key
+            //         console.log(key);
+            //         // The Object is foo[key]
+            //         console.log(journeies[key]);
+            //     });
+            // }
             for (let id in journeies){
                 journeyList.push(journeies[id] )
             }
@@ -72,6 +79,7 @@ const ViewAllTokenApplyed = () => {
                                             <th className="text-center">Route</th>
                                             <th className="text-center">Start</th>
                                             <th className="text-center">Distination</th>
+                                            <th className="text-center">Action</th>
                                         </tr>
                                         </thead>
                                         <tbody className="text-center">
@@ -90,6 +98,12 @@ const ViewAllTokenApplyed = () => {
                                                 <td>{j.Route}</td>
                                                 <td>{j.Start}</td>
                                                 <td>{j.Distination}</td>
+
+                                                <td>
+                                                    <a className="btn btn-success" id="icon" onClick={genaratePDF}>
+                                                        <em className="fa fa-edit"/>
+                                                    </a>
+                                                </td>
                                             </tr>
                                         ))}
                                         </tbody>

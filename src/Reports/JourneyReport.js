@@ -41,7 +41,7 @@ const JourneyReport = () => {
     // }
 
     useEffect(() => {
-        const list = firebaseapp.database().ref('journey');
+        const list = firebaseapp.database().ref('Passenger_Journeys');
         const journeyList =[];
         list.on('value',(snapshot)=>{
             console.log(snapshot.val());
@@ -96,11 +96,12 @@ const JourneyReport = () => {
                                        id="ipi-table">
                                     <thead className="thead-dark">
                                     <tr>
-                                        <th className="text-center">Name</th>
-                                        <th className="text-center col-lg-4">Route</th>
+                                        <th className="text-center">PassengerID</th>
+                                        <th className="text-center col-lg-4">JourneyID</th>
+                                        <th className="text-center">Date</th>
                                         <th className="text-center">Start</th>
-                                        <th className="text-center">Destination</th>
-                                        <th className="text-center">Price</th>
+                                        <th className="text-center">End</th>
+                                        <th className="text-center">Time</th>
                                     </tr>
                                     </thead>
                                     <tbody className="text-center">
@@ -113,11 +114,12 @@ const JourneyReport = () => {
 
                                     {list.map((j)=>(
                                         <tr>
-                                            <td>{j.Name}</td>
-                                            <td>{j.Route}</td>
+                                            <td>{j.PassengerID}</td>
+                                            <td>{j.JourneyID}</td>
+                                            <td>{j.Date}</td>
                                             <td>{j.Start}</td>
-                                            <td>{j.Destination}</td>
-                                            <td>{j.Price}</td>
+                                            <td>{j.End}</td>
+                                            <td>{j.Time}</td>
                                         </tr>
                                     ))}
 

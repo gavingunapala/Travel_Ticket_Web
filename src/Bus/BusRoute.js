@@ -41,10 +41,10 @@ const BusRoute = () => {
                             <span className="counter pull-right"></span>
                             <br/><br/>
                         </div>
-                        <a href="/AddBusRoute" className="btn btn-primary" role="button">
-                            Add Bus to Route
+                        <a href="/AddBusRoute" className="btn btn-primary " role="button" style={{float: 'left'}} >
+                            Add Bus
                         </a>
-                        <a  className="btn btn-success btngena"  type="submit">Bus Root</a>
+
                         <br /><br />
                         <div className="row1">
                             <div className="col-12">
@@ -95,6 +95,7 @@ const BusRoute = () => {
                                         {/*})}*/}
                                         </tbody>
                                     </table>
+
                                     <br/>
                                 </div>
                             </div>
