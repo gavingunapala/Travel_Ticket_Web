@@ -2,6 +2,7 @@ import React,{useEffect, useState} from 'react';
 import AdminSideNav from "../SideNav/AdminSideNav";
 import '../CSS/tableEmployee.css';
 import firebaseapp from "../firebaseDB/firebase";
+import AddDriver from "./AddDrivers";
 
 const ViewDrivers = () => {
 
@@ -41,7 +42,7 @@ const ViewDrivers = () => {
                             <span className="counter pull-right"></span>
                             <br/><br/>
                         </div>
-                        <a href="/AddBusRoute" className="btn btn-primary " role="button" style={{float: 'left'}} >
+                        <a href="/AddDrivers" className="btn btn-primary " role="button" style={{float: 'left'}} >
                             Add Driver
                         </a>
 

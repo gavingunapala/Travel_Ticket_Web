@@ -16,10 +16,13 @@ import ViewAllTokenApplyed from "./Customer/ViewAllTokenApplyed";
 import ViewRoute from "./route/ViewRoute";
 import ViewOneBusOnRoute from "./Bus/ViewOneBusOnRoute";
 import VisualFeedback from "./Reports/VisualFeedback";
+import PassengerComplain from "./Reports/PassengerComplain";
 import ReleaseAccount from "./Customer/ReleaseAccount";
 import ViewDrivers from "./Drivers/ViewDrivers";
 import ViewLocalPassangers from "./Customer/ViewLocalPassangers";
 import GenaratePDF from "./Customer/genaratePdf";
+import AddDrivers from "./Drivers/AddDrivers";
+import EndVisualFeedback from "./Reports/EndVisualFeedback";
 
 
 function App() {
@@ -39,6 +42,7 @@ function App() {
         <Route exact path="/ReportedCustomers" component={ReportedCustomers}/>
         <Route exact path="/ViewAllTokenApplyed" component={ViewAllTokenApplyed}/>
         <Route exact path="/ViewRoute" component={ViewRoute}/>
+        <Route exact path="/PassengerComplain" component={PassengerComplain}/>
 
 
         <Route exact path="/ViewOneBusOnRoute/:id" component={ViewOneBusOnRoute}/>
@@ -51,6 +55,8 @@ function App() {
 
 
         <Route exact path="/VisualFeedback" component={VisualFeedback}/>
+        <Route exact path="/AddDrivers" component={AddDrivers}/>
+        <Route exact path="/EndVisualFeedback" component={EndVisualFeedback}/>
 
 
     </div>
