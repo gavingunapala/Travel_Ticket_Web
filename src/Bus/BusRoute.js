@@ -8,7 +8,7 @@ const BusRoute = () => {
     const[list, setlist] = useState([]);
 
     useEffect(() => {
-        const list = firebaseapp.database().ref('BusRoute');
+        const list = firebaseapp.database().ref('Bus');
         const busrouteList =[];
         list.on('value',(snapshot)=>{
             console.log(snapshot.val());
@@ -41,10 +41,10 @@ const BusRoute = () => {
                             <span className="counter pull-right"></span>
                             <br/><br/>
                         </div>
-                        <a href="/AddBusRoute" className="btn btn-primary" role="button">
-                            Add Bus to Route
+                        <a href="/AddBusRoute" className="btn btn-primary " role="button" style={{float: 'left'}} >
+                            Add Bus
                         </a>
-                        <a  className="btn btn-success btngena"  type="submit">Bus Root</a>
+
                         <br /><br />
                         <div className="row1">
                             <div className="col-12">
@@ -54,29 +54,18 @@ const BusRoute = () => {
                                         <thead className="thead-dark">
                                         <tr>
                                             <th className="text-center">Route Number</th>
-                                            <th className="text-center">Bus Number</th>
-                                            <th className="text-center">Driver Name</th>
-                                            <th className="text-center">Phone Number</th>
-                                            {/*<th className="text-center">Email</th>*/}
-                                            {/*<th className="text-center">Password</th>*/}
-                                            {/*<th className="text-center">Actions</th>*/}
+                                            <th className="text-center">Bus ID</th>
+                                            <th className="text-center">Bus Type</th>
+                                            <th className="text-center">No of Seats</th>
                                         </tr>
                                         </thead>
                                         <tbody className="text-center">
-                                        {/*{Customer.filter((val)=>{*/}
-                                        {/*    if(SearchWord ==""){*/}
-                                        {/*        return val*/}
-                                        {/*    }else if(val.Name.toLowerCase().includes(SearchWord.toLowerCase())||val.NICNumber.toLowerCase().includes(SearchWord.toLowerCase()) ){*/}
-                                        {/*        return val*/}
-                                        {/*    }*/}
-                                        {/*}).map((customer) => {*/}
-
                                         {list.map((b)=>(
                                             <tr>
-                                                <td>{b.Route}</td>
-                                                <td>{b.BusNo}</td>
-                                                <td>{b.BusDriver}</td>
-                                                <td>{b.PhoneNo}</td>
+                                                <td>{b.RouteID}</td>
+                                                <td>{b.BusID}</td>
+                                                <td>{b.BusType}</td>
+                                                <td>{b.NoofSeats}</td>
                                             </tr>
                                         ))}
 
@@ -106,6 +95,7 @@ const BusRoute = () => {
                                         {/*})}*/}
                                         </tbody>
                                     </table>
+
                                     <br/>
                                 </div>
                             </div>

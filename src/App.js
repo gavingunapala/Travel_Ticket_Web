@@ -17,6 +17,10 @@ import ViewRoute from "./route/ViewRoute";
 import ViewOneBusOnRoute from "./Bus/ViewOneBusOnRoute";
 import VisualFeedback from "./Reports/VisualFeedback";
 import PassengerComplain from "./Reports/PassengerComplain";
+import ReleaseAccount from "./Customer/ReleaseAccount";
+import ViewDrivers from "./Drivers/ViewDrivers";
+import ViewLocalPassangers from "./Customer/ViewLocalPassangers";
+import GenaratePDF from "./Customer/genaratePdf";
 
 
 function App() {
@@ -40,7 +44,11 @@ function App() {
 
 
         <Route exact path="/ViewOneBusOnRoute/:id" component={ViewOneBusOnRoute}/>
+        <Route exact path="/ReleaseAccount/:id" component={ReleaseAccount}/>
+        <Route exact path="/ViewDrivers" component={ViewDrivers}/>
 
+        <Route exact path="/ViewLocalPassangers" component={ViewLocalPassangers}/>
+        <Route exact path="/GenaratePDF/:id" component={GenaratePDF}/>
 
 
 

@@ -19,16 +19,23 @@ const AdminSideNav = () => {
                 </div>
                 <ul className="list-unstyled components">
                     <li>
-                        <a href="/">a</a>
-                        <a href="/BusRoute">Bus Route</a>
+                        <a href="/BusRoute">Manage Bus</a>
+                        <a href="/ViewDrivers">Manage Drivers</a>
+                        <a href="/ViewLocalPassangers"> View Local Passangers</a>
                         <a href="/JourneyReport">Journey Details</a>
-                        <a href="/ViewPayment">Payments</a>
-                        <a href="/ViewAllTokenApplyed">Create Physical Token</a>
+                        <a href="/ViewRoute">ViewRoute </a>
+                        <a href="/ViewAllTokenApplyed">view Physical Token</a>
                         <a href="/ReportedCustomers">Reported Passengers </a>
                         <a href="/GetPhysicalToken">apply for physical token </a>
                         <a href="/PassengerComplain">Passenger Complain </a>
+                        <a href="/VisualFeedback">VisualFeedback</a>
 
-                        <a href="/ViewRoute">ViewRoute </a>
+                        <a href="/ViewPayment">Payments</a>
+
+
+
+
+
 
                     </li>
                     <li>

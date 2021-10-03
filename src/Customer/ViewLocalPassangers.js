@@ -1,30 +1,28 @@
-import React, {useEffect, useState} from "react";
+import React,{useEffect, useState} from 'react';
 import AdminSideNav from "../SideNav/AdminSideNav";
+import '../CSS/tableEmployee.css';
 import firebaseapp from "../firebaseDB/firebase";
 
-
-const ReportedCustomers = () =>{
+const ViewLocalPassangers = () => {
 
     const[list, setlist] = useState([]);
 
     useEffect(() => {
         const list = firebaseapp.database().ref('LocalPassnger');
-        const reportedList =[];
+        const LPList =[];
         list.on('value',(snapshot)=>{
             console.log(snapshot.val());
-            const repotedUser = snapshot.val();
+            const lp = snapshot.val();
 
-            for (let id in repotedUser){
-                    reportedList.push(repotedUser[id] )
-
+            for (let id in lp){
+                LPList.push(lp[id] )
             }
-            console.log(reportedList)
-            setlist(reportedList)
+            console.log(LPList)
+            setlist(LPList)
         })
     }, []);
 
-
-    return(
+    return (
         <div>
             <div className="row1">
                 <div className="col-2"> <AdminSideNav/></div>
@@ -43,10 +41,7 @@ const ReportedCustomers = () =>{
                             <span className="counter pull-right"></span>
                             <br/><br/>
                         </div>
-                        {/*<a href="/" className="btn btn-primary" role="button">*/}
-                        {/*    Add Bus to Route*/}
-                        {/*</a>*/}
-                        {/*<a className="btn btn-success btngena" type="submit">Bus Root</a>*/}
+
                         <br /><br />
                         <div className="row1">
                             <div className="col-12">
@@ -55,37 +50,22 @@ const ReportedCustomers = () =>{
                                            id="ipi-table">
                                         <thead className="thead-dark">
                                         <tr>
-                                            <th className="text-center">name</th>
-                                            <th className="text-center">nic</th>
-                                            <th className="text-center">Account Balance</th>
-                                            <th className="text-center">address</th>
-                                            <th className="text-center">Status</th>
-                                            <th className="text-center">Action</th>
-
+                                            <th className="text-center">Name</th>
+                                            <th className="text-center">NIC</th>
+                                            <th className="text-center">Address</th>
                                         </tr>
                                         </thead>
                                         <tbody className="text-center">
-                                        {list.filter((val)=>{
-                                            if(val.accStatus =="hold"){
-                                            return val
-                                        }else{
-                                            return null
-                                        }
-                                        }).map((val)=>(
+                                        {list.map((b)=>(
                                             <tr>
-                                                <td>{val.name}</td>
-                                                <td>{val.nic}</td>
-                                                <td>{val.accBalance}</td>
-                                                <td>{val.address}</td>
-                                                <td>{val.accStatus}</td>
-                                                <td><a className="btn btn-success" id="icon" href={`/ReleaseAccount/${val.name}`}>
-                                                        <em className="fa fa-edit" />
-                                                    </a>
-                                                </td>
+                                                <td>{b.name}</td>
+                                                <td>{b.nic}</td>
+                                                <td>{b.address}</td>
                                             </tr>
                                         ))}
                                         </tbody>
                                     </table>
+
                                     <br/>
                                 </div>
                             </div>
@@ -93,7 +73,6 @@ const ReportedCustomers = () =>{
                     </div></div>
             </div>
         </div>
-
-    );
+    )
 }
-export default ReportedCustomers;
+export default ViewLocalPassangers;
