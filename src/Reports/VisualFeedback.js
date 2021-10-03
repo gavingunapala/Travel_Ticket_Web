@@ -13,10 +13,26 @@ const VisualFeedback = () => {
     const [state, setState] = useState(true);
     const[acc, setacc] = useState("");
     const[total, settotal] = useState("");
+    const[Name, setName] = useState("");
+    const[location, setlocation] = useState("");
 
     const accSetter = (e) => {
         setacc(e.target.value);
     }
+    const NameSetter = (e) => {
+        setName(e.target.value);
+    }
+    const locationSetter = (e) => {
+        setlocation(e.target.value);
+    }
+    const setkmSetter = (e) => {
+        setsetkm(e.target.value);
+    }
+
+    // const destinationSetter = (e) => {
+    //     setdestination(e.target.value);
+    // }
+    // console.log(destination)
 
     const[value, setvalue] = useState("R002");
     console.log(value)
@@ -64,6 +80,20 @@ const VisualFeedback = () => {
         // history.push(path);
     }
 
+    const startjourney = ()=>{
+        history.push({
+            pathname: '/EndVisualFeedback',
+            state: {  //location state
+                update: true,
+                Name:Name,
+                acc:acc,
+                setkm:setkm,
+                location:location,
+                Route:value,
+            },
+    });
+    }
+
     return (
         <div>
             <div className="row">
@@ -77,13 +107,13 @@ const VisualFeedback = () => {
                                 <h2 className="text-center">Registration</h2>
                                 <br />
                                 <div className="container   ">
-                                    <div><label>Name</label><input className="form-control" type="text" />
+                                    <div><label>Name</label><input className="form-control" type="text" onChange={NameSetter}/>
                                     </div>
                                     <div className="form-group">
-                                        <div><label>AccountBalance</label><input className="form-control" type="Number" onChange={accSetter}/>
+                                        <div><label>AccountBalance</label><input className="form-control" type="Number" value={acc} onChange={accSetter}/>
                                         </div>
                                         <div><label>Location</label><input className="form-control"
-                                                                        type="text" /></div>
+                                                                        type="text" onChange={locationSetter} /></div>
                                         <div><label htmlFor="type">RouteID</label>
                                             <select className="form-control"
                                                     name="type"
@@ -97,17 +127,7 @@ const VisualFeedback = () => {
                                             </select>
                                         </div>
 
-                                        <div><label>MaximumDistance</label><input className="form-control"
-                                                                        type="Number"  value={maxdis}/></div>
-                                        <div><label>FarePerkm</label><input className="form-control"
-                                                                                  type="Number" value={setkm}/></div>
-
-
-                                        <div><label>Total Price for distance</label><input className="form-control"
-                                                                            type="Number" value={(setkm*maxdis)}/></div>
-
                                         <br/>
-                                        {/*disabled={state}*/}
                                         <div className="row">
                                             <div className="col-md-12 text-center content-right">
                                                 <button className="btn btn-success form-btn" onClick={changestate}
@@ -116,13 +136,46 @@ const VisualFeedback = () => {
                                             </div>
                                         </div>
 
+                                        <br/>
+
+                                        <div><label>MaximumDistance</label><input className="form-control"
+                                                                        type="Number"  value={maxdis} /></div>
+                                        <div><label>FarePerkm</label><input className="form-control"
+                                                                                  type="Number" value={setkm}/></div>
+
+
+                                        <div><label>Total Price for distance</label><input className="form-control"
+                                                                            type="Number" value={(setkm*maxdis)}/></div>
+
+                                        <br/>
                                         <div className="row">
                                             <div className="col-md-12 text-center content-right">
-                                                <button className="btn btn-success form-btn" disabled={state} onClick={changestate}
+                                                <button className="btn btn-success form-btn" disabled={state} onClick={startjourney}
                                                         type="submit">Start Journey
                                                 </button>
                                             </div>
                                         </div>
+
+                                        {/*onClick={changestate}*/}
+                                        {/*<div><label htmlFor="type">Destination</label>*/}
+                                        {/*    <select className="form-control"*/}
+                                        {/*            name="type"*/}
+                                        {/*            id="type" onChange={destinationSetter}>*/}
+                                        {/*        <option>Choose</option>*/}
+                                        {/*        <option value={25}>Anuradhapura</option>*/}
+                                        {/*        <option value={15}>Boralutanna</option>*/}
+                                        {/*        <option value={10}>Colombo</option>*/}
+                                        {/*        <option value={35}>Dehiowita</option>*/}
+                                        {/*        <option value={20}>Ehaliyagoda</option>*/}
+                                        {/*    </select>*/}
+                                        {/*</div>*/}
+
+                                        {/*<div><label>FarePerkm</label><input className="form-control"*/}
+                                        {/*                                    type="Number" value={setkm}/></div>*/}
+
+
+                                        {/*<div><label>Total Price for distance</label><input className="form-control"*/}
+                                        {/*                                                   type="Number" value={(setkm*destination)}/></div>*/}
 
 
                                         <br />

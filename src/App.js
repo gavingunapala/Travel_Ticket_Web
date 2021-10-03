@@ -21,6 +21,8 @@ import ReleaseAccount from "./Customer/ReleaseAccount";
 import ViewDrivers from "./Drivers/ViewDrivers";
 import ViewLocalPassangers from "./Customer/ViewLocalPassangers";
 import GenaratePDF from "./Customer/genaratePdf";
+import AddDrivers from "./Drivers/AddDrivers";
+import EndVisualFeedback from "./Reports/EndVisualFeedback";
 
 
 function App() {
@@ -53,6 +55,8 @@ function App() {
 
 
         <Route exact path="/VisualFeedback" component={VisualFeedback}/>
+        <Route exact path="/AddDrivers" component={AddDrivers}/>
+        <Route exact path="/EndVisualFeedback" component={EndVisualFeedback}/>
 
 
     </div>
