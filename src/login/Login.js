@@ -30,33 +30,30 @@ const Login = () => {
         const LPList =[];
         console.log(Email)
         console.log(Password)
+        // console.log(snapshot.val().name)
         list.on('value',(snapshot)=>{
-            console.log(snapshot.val());
             if (Email == "admin" && Password == "123") {
                 his.push('/AdminSideNav');
+            }
+            else if(snapshot.val().name==null){
+                alert("username is not valid")
             }
             else if(Email == snapshot.val().name){
 
                 if( Password == snapshot.val().password){
-                   alert("logged")
+                    alert("logged")
                     his.push(`/GetPhysicalToken/${snapshot.val().name}`);
                 }else{
-                   alert("password is not valid")
+                    alert("password is not valid")
                 }
-
-                // const lp = snapshot.val();
-                // // for (let id in lp){
-                // LPList.push(lp )
-                // // }
-                // console.log(lp)
             }
             else {
                 alert("User name is not valid")
             }
+
         })
 
-
-    //     e.preventDefault();
+        //     e.preventDefault();
     //     if (Email == "admin@gmail.com" && Password == "123") {
     //         history.push('/AdminPanelCustomers');
     //     } else {
@@ -92,7 +89,7 @@ console.log(lenth)
                             <div>
                                 <h3 id="heading"><center>Log in</center></h3>
                             </div>
-                            <div><label><b>Email</b></label>
+                            <div><label><b>User Name</b></label>
                             </div>
                             <input className="form-control" type="text" id="input" placeholder=" "
                                    onChange={EmailSetter}
