@@ -34,7 +34,10 @@ const AdminSideNav = () => {
 
 
                         <a href="/RechargeAccount">  RechargeAccount </a>
+                        <a href="/RechargeAccount">  RechargeAccount </a>
                         <a href="/WebJourney">  Web Journey </a>
+
+                        <a href="/Login">  Login </a>
 
 
 

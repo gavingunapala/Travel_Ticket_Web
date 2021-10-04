@@ -8,7 +8,7 @@ const RechargeAccount = () =>{
 
     const[id, setid] = useState("Aparna");
 
-    let fulltotle = 0;
+    let fulltotle ;
 
     const[list, setlist] = useState([]);
     const[add, setadd] = useState(0);
@@ -26,9 +26,14 @@ const RechargeAccount = () =>{
     const TotleSetter = (e) => {
         setadd(e.target.value);
     }
+    const nameSetter = (e) => {
+        setid(e.target.value);
+    }
 
     useEffect(() => {
         const list = firebaseapp.database().ref('LocalPassnger').child(id);
+
+
         const reportedList =[];
         list.on('value',(snapshot)=>{
             console.log(snapshot.val().accBalance);
@@ -49,11 +54,13 @@ const RechargeAccount = () =>{
     }, [add]);
 
 
+
+
     fulltotle = (balance*1)+(add*1)
     const onSubmit = (e) => {
         const d2Ref =firebaseapp.database().ref('LocalPassnger').child(id);
         d2Ref.update({
-            accBalance: fulltotle,
+            accBalance: fulltotle.toString(),
         });
         alert("Payment added");
     }
@@ -71,7 +78,7 @@ const RechargeAccount = () =>{
                                 <br/>
                                 <div className="container   ">
                                     <div><label>Customer ID</label><input className="form-control" type="text"
-                                                                          value={id}/>
+                                                                          value={id}   />
                                     </div>
                                     <div><label>Account Balance</label><input className="form-control" type="text"
                                                                           value={balance}/>

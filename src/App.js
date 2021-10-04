@@ -27,6 +27,7 @@ import GenerateViewAllTokenApplyed from "./Customer/GenerateViewAllTokenApplyed"
 import RechargeAccount from "./Payment/RechargeAccount";
 import WebJourney from "./Reports/WebJourney";
 
+import Login from "./login/Login";
 
 
 function App() {
@@ -65,6 +66,7 @@ function App() {
         <Route exact path="/RechargeAccount" component={RechargeAccount}/>
         <Route exact path="/WebJourney" component={WebJourney}/>
 
+        <Route exact path="/Login" component={Login}/>
 
 
 
