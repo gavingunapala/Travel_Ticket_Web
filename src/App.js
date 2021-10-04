@@ -24,6 +24,7 @@ import GenaratePDF from "./Customer/genaratePdf";
 import AddDrivers from "./Drivers/AddDrivers";
 import EndVisualFeedback from "./Reports/EndVisualFeedback";
 import RechargeAccount from "./Payment/RechargeAccount";
+import Login from "./login/Login";
 
 
 function App() {
@@ -59,6 +60,7 @@ function App() {
         <Route exact path="/AddDrivers" component={AddDrivers}/>
         <Route exact path="/EndVisualFeedback" component={EndVisualFeedback}/>
         <Route exact path="/RechargeAccount" component={RechargeAccount}/>
+        <Route exact path="/Login" component={Login}/>
 
 
 
