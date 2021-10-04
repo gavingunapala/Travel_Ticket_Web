@@ -10,56 +10,46 @@ const RechargeAccount = () =>{
     const { id} = useParams();
     console.log(id)
     const his = useHistory();
-
-    // const[id, setid] = useState("");
-
     let fulltotle ;
 
     const[list, setlist] = useState([]);
     const[add, setadd] = useState(0);
     let [balance, setbalance] = useState(0);
-
-    //
-    // const[Name, setName] = useState([]);
-    // const[status, setstatus] = useState([]);
-    // const[Address, setAddress] = useState([]);
-    // const[Nic, setNic] = useState([]);
-
-
+    const[date, setdate] = useState("");
+    const[Type, setType] = useState("");
+    const[ccNumber, setccNumber] = useState("");
+    const[cvvNumber, setcvvNumber] = useState("");
 
 
     const TotleSetter = (e) => {
         setadd(e.target.value);
     }
-    // const nameSetter = (e) => {
-    //     setid(e.target.value);
-    // }
+    const DateSetter = (e) => {
+        setdate(e.target.value);
+    }
+    const typeSetter = (e) => {
+        setType(e.target.value);
+    }
+    const ccSetter = (e) => {
+        setccNumber(e.target.value);
+    }
+    const cvvSetter = (e) => {
+        setcvvNumber(e.target.value);
+    }
+
+
 
     useEffect(() => {
         const list = firebaseapp.database().ref('LocalPassnger').child(id);
 
-
         const reportedList =[];
         list.on('value',(snapshot)=>{
             console.log(snapshot.val().accBalance);
-            // const repotedUser = snapshot.val();
             setbalance(snapshot.val().accBalance)
-            //
-            // setName(snapshot.val().name)
-            // setstatus(snapshot.val().accStatus)
-            // setAddress(snapshot.val().address)
-            // setNic(snapshot.val().nic)
-
-
             console.log(reportedList)
             setlist(reportedList)
         })
-
-
     }, [add]);
-
-
-
 
     fulltotle = (balance*1)+(add*1)
     const onSubmit = (e) => {
@@ -67,9 +57,23 @@ const RechargeAccount = () =>{
         d2Ref.update({
             accBalance: fulltotle.toString(),
         });
+
+        const d3Ref =firebaseapp.database().ref("credit");
+        const d3 = {
+            cardHolderName:id,
+            cardType:Type,
+            ccNumber:ccNumber,
+            cvv:cvvNumber,
+            expDate:date,
+            id:id,
+            rechargeAmount:add,
+        };
+        d3Ref.push(d3);
+
         alert("Payment added");
         his.push('/');
     }
+
     return(
         <div className={'background-image'}>
             <div className="row1">
@@ -84,34 +88,39 @@ const RechargeAccount = () =>{
                                 <br/>
                                 <div className="container   ">
                                     <div><label>Customer ID</label><input className="form-control" type="text"
-                                                                          value={id}   />
+                                                                          value={id} disabled={true}  />
                                     </div>
                                     <div><label>Account Balance</label><input className="form-control" type="text"
-                                                                          value={balance}/>
+                                                                          value={balance} disabled={true}/>
                                     </div>
 
                                     <div><label>Name On Credit Card</label><input className="form-control" type="text"
                                                                                  />
                                     </div>
-                                    <div><label>Phone Number</label><br/><input className="form-control" type="number"
-                                                                                min='0' />
+                                    <div><label>Card Type</label><br/>
+                                        <select  id="Type" onChange={typeSetter}>
+                                            <option value="Credit">Credit</option>
+                                            <option value="Debit">Debit</option>
+                                            <option value="visa">Visa</option>
+                                            <option value="Master">Master</option>
+                                        </select>
                                     </div>
                                     <div className={"row"}>
                                         <div className="col-sm-7">
                                             <label>Card Number</label><br/><input className="form-control" type="number"
-                                                                                  min='0' />
+                                                                            onChange={ccSetter}      min='0' />
                                         </div>
                                         <div className="col-sm-4">
                                             <label>CVV Number</label><br/><input className="form-control" type="number"
-                                                                                 min='0' />
+                                                                               onChange={cvvSetter}  min='0' />
                                         </div>
                                     </div>
                                     <div><label>Expire Date</label><input className="form-control" type="date"
-                                                                         /></div>
+                                                                    onChange={DateSetter}     /></div>
                                     <br/>
                                     <div className={"row"}>
                                         <div className="col-sm-7">
-                                            <label>Totle price</label><br/><input className="form-control" type="number" onChange={TotleSetter}/>
+                                            <label>Price</label><br/><input className="form-control" type="number" onChange={TotleSetter}/>
                                         </div>
                                         <div className="col-sm-2 pad">
                                             <center>
