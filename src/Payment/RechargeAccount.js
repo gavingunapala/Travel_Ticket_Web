@@ -98,7 +98,8 @@ const RechargeAccount = () =>{
                                                                                  />
                                     </div>
                                     <div><label>Card Type</label><br/>
-                                        <select  id="Type" onChange={typeSetter}>
+                                        <select  id="Type"className="form-control" onChange={typeSetter}>
+                                            <option value="Credit">Select</option>
                                             <option value="Credit">Credit</option>
                                             <option value="Debit">Debit</option>
                                             <option value="visa">Visa</option>

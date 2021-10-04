@@ -5,46 +5,12 @@ import firebaseapp from "../firebaseDB/firebase";
 import jsPDF from "jspdf";
 
 const WebJourney = () => {
-
-    // const[name, setname] = useState("");
-    // const[route, setroute] = useState("");
-    // const[start, setstart] = useState("");
-    // const[destination, setdestination] = useState("null");
-    // const[price, setprice] = useState("");
+    const [SearchWord, setSearchWord] = useState('');
     const[list, setlist] = useState([]);
     var today = new Date();
     var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
     var time = today.getHours() + ":" + (today.getMinutes()<10?'0':'') + today.getMinutes() + ":" + (today.getSeconds()<10?'0':'') + today.getSeconds();
     var dateTime = date+' '+time;
-
-    // const nameSetter = (e) => {
-    //     setname(e.target.value);
-    // }
-    // const routeSetter = (e) => {
-    //     setroute(e.target.value);
-    // }
-    // const startSetter = (e) => {
-    //     setstart(e.target.value);
-    // }
-    // const destinationSetter = (e) => {
-    //     setdestination(e.target.value);
-    // }
-    // const priceSetter = (e) => {
-    //     setprice(e.target.value);
-    // }
-
-    // const onSubmit = (e) => {
-    //     const d2Ref =firebaseapp.database().ref("journey");
-    //     const d2 = {
-    //         Name:name,
-    //         Route:route,
-    //         Start:start,
-    //         Destination:destination,
-    //         Price:price,
-    //     };
-    //     d2Ref.push(d2);
-    // }
-
     useEffect(() => {
         const list = firebaseapp.database().ref('journey');
         const journeyList =[];
@@ -80,7 +46,7 @@ const WebJourney = () => {
                     {/*<Search/>*/}
                     <div className="col-xs-6">
                         <div className="searchBar">
-                            <input type="search" className="form-control" placeholder="Search Name or NIC NUMBER"/>
+                            <input type="search" className="form-control" placeholder="Search Name or NIC NUMBER" onChange={event =>{setSearchWord(event.target.value)}}/>
                         </div>
                     </div>
                     {/*end*/}
@@ -115,14 +81,13 @@ const WebJourney = () => {
                                         </tr>
                                         </thead>
                                         <tbody className="text-center">
-                                        {/*{Customer.filter((val)=>{*/}
-                                        {/*    if(SearchWord ==""){*/}
-                                        {/*        return val*/}
-                                        {/*    }else if(val.Name.toLowerCase().includes(SearchWord.toLowerCase())||val.NICNumber.toLowerCase().includes(SearchWord.toLowerCase()) ){*/}
-                                        {/*        return val*/}
-                                        {/*    }*/}
-
-                                        {list.map((j)=>(
+                                        {list.filter((val)=>{
+                                            if(SearchWord ==""){
+                                                return val
+                                            }else if(val.Name.toLowerCase().includes(SearchWord.toLowerCase())||val.Destination.toLowerCase().includes(SearchWord.toLowerCase()) ){
+                                                return val
+                                            }
+                                        }).map((j)=>(
                                             <tr>
                                                 <td>{j.Destination}</td>
                                                 <td>{j.Name}</td>
@@ -131,32 +96,6 @@ const WebJourney = () => {
                                                 <td>{j.Start}</td>
                                             </tr>
                                         ))}
-
-                                        {/*}).map((customer) => {*/}
-                                        {/*    return (*/}
-                                        {/*        <tr>*/}
-                                        {/*            <td>{customer.Name}</td>*/}
-                                        {/*            <td>{customer.Address}</td>*/}
-                                        {/*            <td>{customer.PhoneNumber}</td>*/}
-                                        {/*            <td>{customer.NICNumber}</td>*/}
-                                        {/*            <td>{customer.Email}</td>*/}
-                                        {/*            <td>{customer.Password}</td>*/}
-                                        {/*            <br />*/}
-                                        {/*            <Link class="btn btn-success" role="button" to={`UpdateCustomers/${customer._id}`}>*/}
-                                        {/*                <em className="fa fa-edit" id="icon"></em>*/}
-                                        {/*            </Link>*/}
-                                        {/*            <a className="btn btn-danger" id="icon">*/}
-                                        {/*                <em className="fa fa-trash"*/}
-                                        {/*                    onClick={() => {*/}
-                                        {/*                        if (window.confirm("Are you sure you want to delete this Customer?")) {*/}
-                                        {/*                            deleteCustomer(customer._id)*/}
-                                        {/*                        }*/}
-                                        {/*                        ;*/}
-                                        {/*                    }}/></a>*/}
-                                        {/*            <br /><br />*/}
-                                        {/*        </tr>*/}
-                                        {/*    );*/}
-                                        {/*})}*/}
                                         </tbody>
                                     </table>
                                     <br/>
