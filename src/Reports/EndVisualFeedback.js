@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react"
-import img from '../Images/undraw_logic_n6th.png';
+import endvisual from '../Images/endvisual.png';
 import firebaseapp from "../firebaseDB/firebase";
 import {useHistory} from "react-router-dom";
 import { useLocation } from 'react-router-dom';
@@ -8,6 +8,7 @@ import { useLocation } from 'react-router-dom';
 const EndVisualFeedback = () => {
 
     const location1 = useLocation();
+    const his = useHistory();
 
     console.log(location1.state.Name)
     console.log(location1.state.acc)
@@ -67,6 +68,8 @@ const EndVisualFeedback = () => {
             Start:location,
         };
         d2Ref.push(d2);
+        alert("Ended Journey")
+        his.push('/');
     }
 
 
@@ -133,7 +136,7 @@ const EndVisualFeedback = () => {
                         <div>
                             <div className="card">
                                 <br />
-                                <h2 className="text-center">Registration</h2>
+                                <h2 className="text-center">End Journey</h2>
                                 <br />
                                 <div className="container   ">
                                     <div><label>Name</label><input className="form-control" type="text" value={name1}/>
@@ -195,7 +198,7 @@ const EndVisualFeedback = () => {
                     </div>
                 </div>
                 <div className="col-sm-6 image">
-                    <img src={img} loading="auto" alt="center" height="600"
+                    <img src={endvisual} loading="auto" alt="center" height="600"
                          width="500"/>
                 </div>
             </div>
