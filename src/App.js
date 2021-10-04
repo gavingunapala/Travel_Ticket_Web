@@ -24,6 +24,7 @@ import GenaratePDF from "./Customer/genaratePdf";
 import AddDrivers from "./Drivers/AddDrivers";
 import EndVisualFeedback from "./Reports/EndVisualFeedback";
 import GenerateViewAllTokenApplyed from "./Customer/GenerateViewAllTokenApplyed";
+import RechargeAccount from "./Payment/RechargeAccount";
 
 
 function App() {
@@ -59,6 +60,10 @@ function App() {
         <Route exact path="/AddDrivers" component={AddDrivers}/>
         <Route exact path="/EndVisualFeedback" component={EndVisualFeedback}/>
         <Route exact path="/GenerateViewAllTokenApplyed" component={GenerateViewAllTokenApplyed}/>
+        <Route exact path="/RechargeAccount" component={RechargeAccount}/>
+
+
+
 
 
     </div>
