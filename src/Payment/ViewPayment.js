@@ -54,20 +54,26 @@ const ViewPayment = () =>{
                                            id="ipi-table">
                                         <thead className="thead-dark">
                                         <tr>
-                                            <th className="text-center">Id</th>
-                                            <th className="text-center">Name</th>
-                                            <th className="text-center">Price</th>
-                                            <th className="text-center">Discription</th>
+                                            <th className="text-center">cardHolderName</th>
+                                            <th className="text-center">cardType</th>
+                                            <th className="text-center">ccNumber</th>
+                                            <th className="text-center">cvv</th>
+                                            <th className="text-center">expDate</th>
+                                            <th className="text-center">id</th>
+                                            <th className="text-center">rechargeAmount</th>
 
                                         </tr>
                                         </thead>
                                         <tbody className="text-center">
                                         {list.map((b)=>(
                                             <tr>
-                                                <td>{b.Name}</td>
-                                                <td>{b.price}</td>
-                                                <td>{b.Phone}</td>
-                                                <td>{b.Expire}</td>
+                                                <td>{b.cardHolderName}</td>
+                                                <td>{b.cardType}</td>
+                                                <td>{b.ccNumber}</td>
+                                                <td>{b.cvv}</td>
+                                                <td>{b.expDate}</td>
+                                                <td>{b.id}</td>
+                                                <td>{b.rechargeAmount}</td>
                                             </tr>
                                         ))}
                                         </tbody>

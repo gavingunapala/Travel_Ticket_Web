@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import firebaseapp from "../firebaseDB/firebase";
 import {useParams} from "react-router-dom";
-import img from "../Images/undraw_logic_n6th.png";
+import token from "../Images/token.png";
 import {useHistory} from "react-router-dom";
 
 
@@ -60,9 +60,17 @@ const ReleaseAccount = () =>{
 
     return(
         <div>
+            <br />
+            <br />
+
             <div className="row">
                 <div className="col-sm-2"></div>
                 <div className=" col-sm-3">
+                    <a href="/ReportedCustomers" className="btn btn-success " role="button" style={{float: 'left'}} >
+                        Back To Admin Panel
+                    </a>
+                    <br />
+                    <br />
                     <div><strong></strong><label></label></div>
                     <div className=" justify-content-center align-items-center">
                         <div>
@@ -91,7 +99,7 @@ const ReleaseAccount = () =>{
                     </div>
                 </div>
                 <div className="col-sm-6 image">
-                    <img src={img} loading="auto" alt="center" height="600"
+                    <img src={token} loading="auto" alt="center" height="600"
                          width="500"/>
                 </div>
             </div>
