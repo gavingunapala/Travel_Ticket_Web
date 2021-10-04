@@ -3,10 +3,15 @@ import AdminSideNav from "../SideNav/AdminSideNav";
 import '../CSS/tableEmployee.css';
 import firebaseapp from "../firebaseDB/firebase";
 import AddDriver from "./AddDrivers";
+import jsPDF from "jspdf";
 
 const ViewDrivers = () => {
 
     const[list, setlist] = useState([]);
+    var today = new Date();
+    var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+    var time = today.getHours() + ":" + (today.getMinutes()<10?'0':'') + today.getMinutes() + ":" + (today.getSeconds()<10?'0':'') + today.getSeconds();
+    var dateTime = date+' '+time;
 
     useEffect(() => {
         const list = firebaseapp.database().ref('Drivers');
@@ -22,6 +27,19 @@ const ViewDrivers = () => {
             setlist(DriverList)
         })
     }, []);
+
+    const genaratePDF=()=> {
+        let doc = new jsPDF('p', 'pt', 'a1');
+        doc.html(document.querySelector('#body'), {
+            callback: function (doc) {
+                doc.save('DriverReport.pdf');
+            },
+            margin: [60, 60, 60, 60],
+            x: 32,
+            y: 32
+        });
+
+    }
 
     return (
         <div>
@@ -45,7 +63,14 @@ const ViewDrivers = () => {
                         <a href="/AddDrivers" className="btn btn-primary " role="button" style={{float: 'left'}} >
                             Add Driver
                         </a>
-
+                        <a className="btn btn-success btngena" type="submit" id={"generate"}onClick={genaratePDF}>Generate Report</a>
+                        <br></br>
+                        <br></br>
+                        <div className="" id={'body'}>
+                            <div><label> Fortune Inn & Suites </label>
+                            </div>
+                            <div><label>{dateTime} </label><br/><br/>
+                            </div>
                         <br /><br />
                         <div className="row1">
                             <div className="col-12">
@@ -75,6 +100,7 @@ const ViewDrivers = () => {
                                     <br/>
                                 </div>
                             </div>
+                        </div>
                         </div>
                     </div></div>
             </div>
