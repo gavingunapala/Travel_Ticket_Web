@@ -39,7 +39,7 @@ const Login = () => {
 
                 if( Password == snapshot.val().password){
                    alert("logged")
-                    // his.push('/GetPhysicalToken');
+                    his.push(`/GetPhysicalToken/${snapshot.val().name}`);
                 }else{
                    alert("password is not valid")
                 }

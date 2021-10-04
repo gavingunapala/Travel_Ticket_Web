@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from "react"
 import {useHistory} from "react-router-dom";
 import firebaseapp from "../firebaseDB/firebase";
-// import axios from "axios";
 import '../../src/CSS/Login/Login1.css'
 
 const LoginUser = () => {
@@ -39,40 +38,15 @@ const LoginUser = () => {
 
                 if( Password == snapshot.val().password){
                     alert("logged")
-                    // his.push('/GetPhysicalToken');
+                    his.push(`/RechargeAccount/${snapshot.val().name}`);
                 }else{
                     alert("password is not valid")
                 }
-
-                // const lp = snapshot.val();
-                // // for (let id in lp){
-                // LPList.push(lp )
-                // // }
-                // console.log(lp)
             }
             else {
                 alert("User name is not valid")
             }
         })
-
-
-        //     e.preventDefault();
-        //     if (Email == "admin@gmail.com" && Password == "123") {
-        //         history.push('/AdminPanelCustomers');
-        //     } else {
-        //         const newCustomer = {
-        //             Email: Email,
-        //             Password: Password
-        //         };
-        //         axios.post('http://localhost:8070/customer/login', newCustomer).then((res) => {
-        //             history.push('/CustomerProfile');
-        //             localStorage.setItem('user', res.data._id);
-        //         }).catch((err) => {
-        //             //
-        //             alert("enter valid details..");
-        //         })
-        //     }
-
     }
 
     console.log(lenth)

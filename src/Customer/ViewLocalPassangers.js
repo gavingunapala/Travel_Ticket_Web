@@ -79,6 +79,7 @@ const ViewLocalPassangers = () => {
                                             <th className="text-center">Name</th>
                                             <th className="text-center">NIC</th>
                                             <th className="text-center">Address</th>
+                                            <th className="text-center">Account Balance</th>
                                         </tr>
                                         </thead>
                                         <tbody className="text-center">
@@ -93,6 +94,7 @@ const ViewLocalPassangers = () => {
                                                 <td>{b.name}</td>
                                                 <td>{b.nic}</td>
                                                 <td>{b.address}</td>
+                                                <td>{b.accBalance}</td>
                                             </tr>
                                         ))}
                                         </tbody>
