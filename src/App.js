@@ -28,6 +28,8 @@ import RechargeAccount from "./Payment/RechargeAccount";
 import WebJourney from "./Reports/WebJourney";
 
 import Login from "./login/Login";
+import Home from "./Customer/Home";
+import LoginUser from "./login/LoginUser";
 
 
 function App() {
@@ -67,6 +69,8 @@ function App() {
         <Route exact path="/WebJourney" component={WebJourney}/>
 
         <Route exact path="/Login" component={Login}/>
+        <Route exact path="/" component={Home}/>
+        <Route exact path="/LoginUser" component={LoginUser}/>
 
 
 
