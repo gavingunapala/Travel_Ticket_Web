@@ -6,7 +6,7 @@ import firebaseapp from "../firebaseDB/firebase";
 const ViewPayment = () =>{
 
     const[list, setlist] = useState([]);
-
+    const [SearchWord, setSearchWord] = useState('');
     useEffect(() => {
         const list = firebaseapp.database().ref('credit');
         const paymentList =[];
@@ -20,7 +20,7 @@ const ViewPayment = () =>{
             console.log(paymentList)
             setlist(paymentList)
         })
-    }, []);
+    }, [list]);
 
 
     return(
@@ -31,7 +31,7 @@ const ViewPayment = () =>{
                     {/*<Search/>*/}
                     <div className="col-xs-6">
                         <div className="searchBar">
-                            <input type="search" className="form-control" placeholder="Search Name or NIC NUMBER"/>
+                            <input type="search" className="form-control" placeholder="Search Name or NIC NUMBER"  onChange={event =>{setSearchWord(event.target.value)}}/>
                         </div>
                     </div>
                     {/*end*/}
@@ -65,7 +65,13 @@ const ViewPayment = () =>{
                                         </tr>
                                         </thead>
                                         <tbody className="text-center">
-                                        {list.map((b)=>(
+                                        {list.filter((val)=>{
+                                            if(SearchWord ==""){
+                                                return val
+                                            }else if(val.id.toLowerCase().includes(SearchWord.toLowerCase())||val.cardHolderName.toLowerCase().includes(SearchWord.toLowerCase()) ){
+                                                return val
+                                            }
+                                        }).map((b)=>(
                                             <tr>
                                                 <td>{b.cardHolderName}</td>
                                                 <td>{b.cardType}</td>
