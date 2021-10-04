@@ -2,12 +2,14 @@ import React, {useEffect, useState} from "react";
 import firebaseapp from "../firebaseDB/firebase";
 import {useParams} from "react-router-dom";
 import img from "../Images/undraw_logic_n6th.png";
+import {useHistory} from "react-router-dom";
 
 
 
 const ReleaseAccount = () =>{
 
     const { id} = useParams();
+    let his = useHistory();
     console.log(id)
 
     const[list, setlist] = useState([]);
@@ -52,6 +54,8 @@ const ReleaseAccount = () =>{
             accStatus: "activate",
         });
         alert("added");
+        his.push('/ReportedCustomers');
+
 
     }
 
