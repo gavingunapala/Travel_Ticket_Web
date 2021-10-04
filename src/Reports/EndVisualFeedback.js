@@ -34,15 +34,15 @@ const EndVisualFeedback = () => {
         setroute1(location1.state.Route)
         console.log(name1)
 
-        if(destination=="A"){
+        if(destination=="Colombo"){
             setvalue(20)
-        }else if(destination=="B"){
+        }else if(destination=="Kandy"){
             setvalue(30)
-        }else if(destination=="C"){
+        }else if(destination=="Gall"){
             setvalue(15)
-        }else if(destination=="D"){
+        }else if(destination=="Jaffna"){
             setvalue(25)
-        }else if(destination=="E"){
+        }else if(destination=="Mathara"){
             setvalue(10)
         }
 
@@ -150,11 +150,11 @@ const EndVisualFeedback = () => {
                                                     name="type"
                                                     id="type" onChange={destinationSetter}>
                                                 <option>Choose</option>
-                                                <option value={"A"}>A</option>
-                                                <option value={"B"}>B</option>
-                                                <option value={"C"}>C</option>
-                                                <option value={"D"}>D</option>
-                                                <option value={"E"}>E</option>
+                                                <option value={"Colombo"}>Colombo</option>
+                                                <option value={"Kandy"}>Kandy</option>
+                                                <option value={"Gall"}>Gall</option>
+                                                <option value={"Jaffna"}>Jaffna</option>
+                                                <option value={"Mathara"}>Mathara</option>
                                             </select>
                                         </div>
 

@@ -67,13 +67,13 @@ const ViewOneBusOnRoute = () => {
             <div className="row1">
                 <div className="col-2"> <AdminSideNav/></div>
                 <div className="col-10"> <br/>
-                    {/*<Search/>*/}
-                    <div className="col-xs-6">
-                        <div className="searchBar">
-                            <input type="search" className="form-control" placeholder="Search Name or NIC NUMBER"/>
-                        </div>
-                    </div>
-                    {/*end*/}
+                    {/*/!*<Search/>*!/*/}
+                    {/*<div className="col-xs-6">*/}
+                    {/*    <div className="searchBar">*/}
+                    {/*        <input type="search" className="form-control" placeholder="Search Name or NIC NUMBER"/>*/}
+                    {/*    </div>*/}
+                    {/*</div>*/}
+                    {/*/!*end*!/*/}
                     <div className="">
                         <div className="row1">
                             <div className="col-12 col-sm-6 col-md-6">
@@ -81,10 +81,10 @@ const ViewOneBusOnRoute = () => {
                             <span className="counter pull-right"></span>
                             <br/><br/>
                         </div>
-                        <a href="/" className="btn btn-primary" role="button">
-                            Customer Home
+                        <a href="/ViewRoute" className="btn btn-primary" role="button">
+                            Back to View Route
                         </a>
-                        <a className="btn btn-success btngena" type="submit">Generate Report</a>
+                        {/*<a className="btn btn-success btngena" type="submit">Generate Report</a>*/}
                         <br /><br />
                         <div className="row1">
                             <div className="col-12">

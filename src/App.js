@@ -23,8 +23,13 @@ import ViewLocalPassangers from "./Customer/ViewLocalPassangers";
 import GenaratePDF from "./Customer/genaratePdf";
 import AddDrivers from "./Drivers/AddDrivers";
 import EndVisualFeedback from "./Reports/EndVisualFeedback";
+import GenerateViewAllTokenApplyed from "./Customer/GenerateViewAllTokenApplyed";
 import RechargeAccount from "./Payment/RechargeAccount";
+import WebJourney from "./Reports/WebJourney";
+
 import Login from "./login/Login";
+import Home from "./Customer/Home";
+import LoginUser from "./login/LoginUser";
 
 
 function App() {
@@ -59,8 +64,13 @@ function App() {
         <Route exact path="/VisualFeedback" component={VisualFeedback}/>
         <Route exact path="/AddDrivers" component={AddDrivers}/>
         <Route exact path="/EndVisualFeedback" component={EndVisualFeedback}/>
+        <Route exact path="/GenerateViewAllTokenApplyed" component={GenerateViewAllTokenApplyed}/>
         <Route exact path="/RechargeAccount" component={RechargeAccount}/>
+        <Route exact path="/WebJourney" component={WebJourney}/>
+
         <Route exact path="/Login" component={Login}/>
+        <Route exact path="/" component={Home}/>
+        <Route exact path="/LoginUser" component={LoginUser}/>
 
 
 

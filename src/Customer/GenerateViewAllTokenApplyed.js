@@ -4,7 +4,7 @@ import '../CSS/tableEmployee.css';
 import firebaseapp from "../firebaseDB/firebase";
 import jsPDF from "jspdf";
 
-const ViewAllTokenApplyed = () => {
+const GenerateViewAllTokenApplyed = () => {
     const[list, setlist] = useState([]);
     const [SearchWord, setSearchWord] = useState('');
     var today = new Date();
@@ -29,10 +29,10 @@ const ViewAllTokenApplyed = () => {
 
 
     const genaratePDF=()=> {
-        let doc = new jsPDF('p', 'pt', 'a4');
-        doc.html(document.querySelector('#UserToken'), {
+        let doc = new jsPDF('p', 'pt', 'a1');
+        doc.html(document.querySelector('#body'), {
             callback: function (doc) {
-                doc.save('Employee Report.pdf');
+                doc.save('TokenReport.pdf');
             },
             margin: [60, 60, 60, 60],
             x: 32,
@@ -59,19 +59,19 @@ const ViewAllTokenApplyed = () => {
                             <span className="counter pull-right"></span>
                             <br/><br/>
                         </div>
-                        <a href="/GenerateViewAllTokenApplyed" className="btn btn-success " role="button" style={{float: 'left'}} >
-                            Generate Report
+                        <a href="/ViewAllTokenApplyed" className="btn btn-primary " role="button" style={{float: 'left'}} >
+                            Back to View All Tokens
                         </a>
-
-                        {/*<a herf = "/GenerateViewAllTokenApplyed" className="btn btn-success btngena" type="submit">Generate Report</a>*/}
+                        <a className="btn btn-success btngena" type="submit" id={"generate"}onClick={genaratePDF}>Generate Report</a>
+                        <br></br>
                         <br></br>
                         <div className="" id={'body'}>
-                            {/*<div><label> Fortune Inn & Suites </label>*/}
-                            {/*</div>*/}
-                            {/*<div><label>{dateTime} </label><br/><br/>*/}
-                            {/*</div>*/}
+                            <div><label> Fortune Inn & Suites </label>
+                            </div>
+                            <div><label>{dateTime} </label><br/><br/>
+                            </div>
                             <br /><br />
-                            {/*id={"UserToken"}*/}
+                        {/*id={"UserToken"}*/}
                         <div className="row1">
                             <div className="col-12">
                                 <div className="table-responsive">
@@ -85,7 +85,7 @@ const ViewAllTokenApplyed = () => {
                                             <th className="text-center">Route</th>
                                             <th className="text-center">Start</th>
                                             <th className="text-center">Destination</th>
-                                            <th className="text-center">Action</th>
+                                            {/*<th className="text-center">Action</th>*/}
                                         </tr>
                                         </thead>
                                         <tbody className="text-center">
@@ -103,11 +103,11 @@ const ViewAllTokenApplyed = () => {
                                                 <td>{j.Route}</td>
                                                 <td>{j.Start}</td>
                                                 <td>{j.Distination}</td>
-                                                <td>
-                                                    <a className="btn btn-danger" id="icon" >
-                                                        <em className="fa fa-edit"/>
-                                                    </a>
-                                                </td>
+                                                {/*<td>*/}
+                                                {/*    <a className="btn btn-success" id="icon" onClick={genaratePDF}>*/}
+                                                {/*        <em className="fa fa-edit"/>*/}
+                                                {/*    </a>*/}
+                                                {/*</td>*/}
                                             </tr>
                                         ))}
                                         </tbody>
@@ -115,11 +115,11 @@ const ViewAllTokenApplyed = () => {
                                     <br/>
                                 </div>
                             </div>
-                            </div>
+                        </div>
                         </div>
                     </div></div>
             </div>
         </div>
     )
 }
-export default ViewAllTokenApplyed;
+export default GenerateViewAllTokenApplyed;

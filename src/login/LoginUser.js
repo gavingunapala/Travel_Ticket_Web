@@ -4,7 +4,7 @@ import firebaseapp from "../firebaseDB/firebase";
 // import axios from "axios";
 import '../../src/CSS/Login/Login1.css'
 
-const Login = () => {
+const LoginUser = () => {
 
     const his = useHistory();
     const [Email, setEmail] = useState('');
@@ -38,10 +38,10 @@ const Login = () => {
             else if(Email == snapshot.val().name){
 
                 if( Password == snapshot.val().password){
-                   alert("logged")
+                    alert("logged")
                     // his.push('/GetPhysicalToken');
                 }else{
-                   alert("password is not valid")
+                    alert("password is not valid")
                 }
 
                 // const lp = snapshot.val();
@@ -56,26 +56,26 @@ const Login = () => {
         })
 
 
-    //     e.preventDefault();
-    //     if (Email == "admin@gmail.com" && Password == "123") {
-    //         history.push('/AdminPanelCustomers');
-    //     } else {
-    //         const newCustomer = {
-    //             Email: Email,
-    //             Password: Password
-    //         };
-    //         axios.post('http://localhost:8070/customer/login', newCustomer).then((res) => {
-    //             history.push('/CustomerProfile');
-    //             localStorage.setItem('user', res.data._id);
-    //         }).catch((err) => {
-    //             //
-    //             alert("enter valid details..");
-    //         })
-    //     }
+        //     e.preventDefault();
+        //     if (Email == "admin@gmail.com" && Password == "123") {
+        //         history.push('/AdminPanelCustomers');
+        //     } else {
+        //         const newCustomer = {
+        //             Email: Email,
+        //             Password: Password
+        //         };
+        //         axios.post('http://localhost:8070/customer/login', newCustomer).then((res) => {
+        //             history.push('/CustomerProfile');
+        //             localStorage.setItem('user', res.data._id);
+        //         }).catch((err) => {
+        //             //
+        //             alert("enter valid details..");
+        //         })
+        //     }
 
     }
 
-console.log(lenth)
+    console.log(lenth)
     return (
         <div>
 
@@ -113,5 +113,4 @@ console.log(lenth)
         </div>
     )
 }
-export default Login;
-
+export default LoginUser;

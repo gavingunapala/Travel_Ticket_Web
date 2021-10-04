@@ -6,10 +6,10 @@ const AdminSideNav = () => {
 
     const history = useHistory();
 
-    // const Logout = () => {
-    //     localStorage.clear();
-    //     history.push('/login');
-    // };
+    const Logout = () => {
+        localStorage.clear();
+        history.push('/login');
+    };
 
     return (
         <div>
@@ -34,6 +34,8 @@ const AdminSideNav = () => {
 
 
                         <a href="/RechargeAccount">  RechargeAccount </a>
+                        <a href="/RechargeAccount">  RechargeAccount </a>
+                        <a href="/WebJourney">  Web Journey </a>
 
                         <a href="/Login">  Login </a>
 
@@ -42,7 +44,7 @@ const AdminSideNav = () => {
                     </li>
                     <li>
                         <a>
-                            {/*<button onClick={Logout}>Logout</button>*/}
+                            <button onClick={Logout}>Logout</button>
                         </a>
                     </li>
                 </ul>
