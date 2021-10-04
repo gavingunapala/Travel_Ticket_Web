@@ -6,6 +6,7 @@ import firebaseapp from "../firebaseDB/firebase";
 const ViewLocalPassangers = () => {
 
     const[list, setlist] = useState([]);
+    const [SearchWord, setSearchWord] = useState('');
 
     useEffect(() => {
         const list = firebaseapp.database().ref('LocalPassnger');
@@ -30,7 +31,7 @@ const ViewLocalPassangers = () => {
                     {/*<Search/>*/}
                     <div className="col-xs-6">
                         <div className="searchBar">
-                            <input type="search" className="form-control" placeholder="Search Name or NIC NUMBER"/>
+                            <input type="search" className="form-control" placeholder="Search Name or NIC NUMBER"  onChange={event =>{setSearchWord(event.target.value)}}/>
                         </div>
                     </div>
                     {/*end*/}
@@ -56,7 +57,13 @@ const ViewLocalPassangers = () => {
                                         </tr>
                                         </thead>
                                         <tbody className="text-center">
-                                        {list.map((b)=>(
+                                        {list.filter((val)=>{
+                                            if(SearchWord ==""){
+                                                return val
+                                            }else if(val.name.toLowerCase().includes(SearchWord.toLowerCase())||val.nic.toLowerCase().includes(SearchWord.toLowerCase()) ){
+                                                return val
+                                            }
+                                        }).map((b)=>(
                                             <tr>
                                                 <td>{b.name}</td>
                                                 <td>{b.nic}</td>

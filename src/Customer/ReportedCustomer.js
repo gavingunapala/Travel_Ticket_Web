@@ -6,6 +6,7 @@ import firebaseapp from "../firebaseDB/firebase";
 const ReportedCustomers = () =>{
 
     const[list, setlist] = useState([]);
+    const [SearchWord, setSearchWord] = useState('');
 
     useEffect(() => {
         const list = firebaseapp.database().ref('LocalPassnger');
@@ -32,7 +33,7 @@ const ReportedCustomers = () =>{
                     {/*<Search/>*/}
                     <div className="col-xs-6">
                         <div className="searchBar">
-                            <input type="search" className="form-control" placeholder="Search Name or NIC NUMBER"/>
+                            <input type="search" className="form-control" placeholder="Search Name or NIC NUMBER" onChange={event =>{setSearchWord(event.target.value)}}/>
                         </div>
                     </div>
                     {/*end*/}
@@ -43,10 +44,6 @@ const ReportedCustomers = () =>{
                             <span className="counter pull-right"></span>
                             <br/><br/>
                         </div>
-                        {/*<a href="/" className="btn btn-primary" role="button">*/}
-                        {/*    Add Bus to Route*/}
-                        {/*</a>*/}
-                        {/*<a className="btn btn-success btngena" type="submit">Bus Root</a>*/}
                         <br /><br />
                         <div className="row1">
                             <div className="col-12">
@@ -67,6 +64,11 @@ const ReportedCustomers = () =>{
                                         <tbody className="text-center">
                                         {list.filter((val)=>{
                                             if(val.accStatus =="hold"){
+                                                // if(SearchWord ==""){
+                                                //     return val
+                                                // }else if(val.name.toLowerCase().includes(SearchWord.toLowerCase())||val.nic.toLowerCase().includes(SearchWord.toLowerCase()) ){
+                                                //     return val
+                                                // }
                                             return val
                                         }else{
                                             return null
@@ -93,7 +95,6 @@ const ReportedCustomers = () =>{
                     </div></div>
             </div>
         </div>
-
     );
 }
 export default ReportedCustomers;
