@@ -5,17 +5,12 @@ import firebaseapp from "../firebaseDB/firebase";
 
 
 const ViewRoute = () => {
-
-
     const[list, setlist] = useState([]);
-
-
+    const [SearchWord, setSearchWord] = useState('');
 
     useEffect(() => {
         const list = firebaseapp.database().ref('Route');
         const journeyList =[];
-        const BusesList =[];
-
 
         list.on('value',(snapshot)=>{
             console.log(snapshot.val());
@@ -28,18 +23,6 @@ const ViewRoute = () => {
             console.log(journeyList)
             setlist(journeyList)
         })
-        // bus.on('value',(snapshot)=>{
-        //     console.log(snapshot.val());
-        //     const buses = snapshot.val();
-        //
-        //     for (let id in buses){
-        //         busList.push(buses[id] )
-        //     }
-        //     console.log(journeyList)
-        //     setbus(busList)
-        // })
-
-
     }, []);
 
 
@@ -51,7 +34,7 @@ const ViewRoute = () => {
                     {/*<Search/>*/}
                     <div className="col-xs-6">
                         <div className="searchBar">
-                            <input type="search" className="form-control" placeholder="Search Name or NIC NUMBER"/>
+                            <input type="search" className="form-control" placeholder="Search StartTerminal or Route ID" onChange={event =>{setSearchWord(event.target.value)}}/>
                         </div>
                     </div>
                     {/*end*/}
@@ -70,44 +53,35 @@ const ViewRoute = () => {
                                            id="ipi-table">
                                         <thead className="thead-dark">
                                         <tr>
-                                            {/*<th className="text-center">Buses</th>*/}
+                                            <th className="text-center">Route Id</th>
+                                            <th className="text-center">Start Terminal</th>
                                             <th className="text-center ">End terminal</th>
                                             <th className="text-center">Fare p/km</th>
                                             <th className="text-center">Max Distance</th>
-                                            <th className="text-center">Route Id</th>
-                                            <th className="text-center">Start Terminal</th>
                                             <th className="text-center">View Buses</th>
                                         </tr>
                                         </thead>
                                         <tbody className="text-center">
-                                        {/*{Customer.filter((val)=>{*/}
-                                        {/*    if(SearchWord ==""){*/}
-                                        {/*        return val*/}
-                                        {/*    }else if(val.Name.toLowerCase().includes(SearchWord.toLowerCase())||val.NICNumber.toLowerCase().includes(SearchWord.toLowerCase()) ){*/}
-                                        {/*        return val*/}
-                                        {/*    }*/}
-
-
-
-                                        {list.map((val)=>(
+                                        {list.filter((val)=>{
+                                            if(SearchWord ==""){
+                                                return val
+                                            }else if(val.StartTerminal.toLowerCase().includes(SearchWord.toLowerCase())||val.RouteID.toLowerCase().includes(SearchWord.toLowerCase()) ){
+                                                return val
+                                            }
+                                        }).map((val)=>(
                                             <tr id={"UserToken"}>
-                                                {/*<td>{val.Buses.B001.BusID}</td>*/}
+                                                <td>{val.RouteID}</td>
+                                                <td>{val.StartTerminal}</td>
                                                 <td>{val.EndTerminal}</td>
                                                 <td>{val.FarePerkm}</td>
                                                 <td>{val.MaximumDistance}</td>
-                                                <td>{val.RouteID}</td>
-                                                <td>{val.StartTerminal}</td>
                                                 <td>
                                                     <a className="btn btn-success" id="icon" href={`/ViewOneBusOnRoute/${val.RouteID}`}>
                                                         <em className="fa fa-edit"/>
                                                     </a>
                                                 </td>
-                                                {/*<td>{j.Trips}</td>*/}
                                             </tr>
                                         ))}
-
-
-
                                         </tbody>
                                     </table>
                                     <br/>

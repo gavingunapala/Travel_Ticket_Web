@@ -5,10 +5,8 @@ import firebaseapp from "../firebaseDB/firebase";
 import jsPDF from "jspdf";
 
 const ViewAllTokenApplyed = () => {
-
-
     const[list, setlist] = useState([]);
-
+    const [SearchWord, setSearchWord] = useState('');
 
 
     useEffect(() => {
@@ -17,14 +15,6 @@ const ViewAllTokenApplyed = () => {
         list.on('value',(snapshot)=>{
             console.log(snapshot.val());
             const journeies = snapshot.val();
-            // if (journeies !== null) {
-            //     Object.keys(journeies).forEach(key => {
-            //         // The ID is the key
-            //         console.log(key);
-            //         // The Object is foo[key]
-            //         console.log(journeies[key]);
-            //     });
-            // }
             for (let id in journeies){
                 journeyList.push(journeies[id] )
             }
@@ -54,7 +44,7 @@ const ViewAllTokenApplyed = () => {
                     {/*<Search/>*/}
                     <div className="col-xs-6">
                         <div className="searchBar">
-                            <input type="search" className="form-control" placeholder="Search Name or NIC NUMBER"/>
+                            <input type="search" className="form-control" placeholder="Search Name or NIC NUMBER" onChange={event =>{setSearchWord(event.target.value)}}/>
                         </div>
                     </div>
                     {/*end*/}
@@ -83,14 +73,13 @@ const ViewAllTokenApplyed = () => {
                                         </tr>
                                         </thead>
                                         <tbody className="text-center">
-                                        {/*{Customer.filter((val)=>{*/}
-                                        {/*    if(SearchWord ==""){*/}
-                                        {/*        return val*/}
-                                        {/*    }else if(val.Name.toLowerCase().includes(SearchWord.toLowerCase())||val.NICNumber.toLowerCase().includes(SearchWord.toLowerCase()) ){*/}
-                                        {/*        return val*/}
-                                        {/*    }*/}
-
-                                        {list.map((j)=>(
+                                        {list.filter((val)=>{
+                                            if(SearchWord ==""){
+                                                return val
+                                            }else if(val.Name.toLowerCase().includes(SearchWord.toLowerCase())||val.Nic.toLowerCase().includes(SearchWord.toLowerCase()) ){
+                                                return val
+                                            }
+                                        }).map((j)=>(
                                             <tr id={"UserToken"}>
                                                 <td>{j.Name}</td>
                                                 <td>{j.Phone}</td>
@@ -98,7 +87,6 @@ const ViewAllTokenApplyed = () => {
                                                 <td>{j.Route}</td>
                                                 <td>{j.Start}</td>
                                                 <td>{j.Distination}</td>
-
                                                 <td>
                                                     <a className="btn btn-success" id="icon" onClick={genaratePDF}>
                                                         <em className="fa fa-edit"/>
