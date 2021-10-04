@@ -57,20 +57,20 @@ const GenerateViewAllTokenApplyed = () => {
                             <div className="col-12 col-sm-6 col-md-6">
                             </div>
                             <span className="counter pull-right"></span>
-                            <br/><br/>
+                            <br/>
                         </div>
                         <a href="/ViewAllTokenApplyed" className="btn btn-primary " role="button" style={{float: 'left'}} >
                             Back to View All Tokens
                         </a>
                         <a className="btn btn-success btngena" type="submit" id={"generate"}onClick={genaratePDF}>Generate Report</a>
                         <br></br>
-                        <br></br>
+
                         <div className="" id={'body'}>
                             <div><label> Fortune Inn & Suites </label>
                             </div>
-                            <div><label>{dateTime} </label><br/><br/>
+                            <div><label>{dateTime} </label><br/>
                             </div>
-                            <br /><br />
+                            <br />
                         {/*id={"UserToken"}*/}
                         <div className="row1">
                             <div className="col-12">
