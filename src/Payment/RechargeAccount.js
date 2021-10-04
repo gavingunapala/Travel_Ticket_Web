@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import firebaseapp from "../firebaseDB/firebase";
-import img from "../Images/undraw_logic_n6th.png";
+import recharge from "../Images/recharge.png";
 import {useHistory, useParams} from "react-router-dom";
 
 
@@ -137,7 +137,7 @@ const RechargeAccount = () =>{
                     </div>
                 </div>
                 <div className="col-sm-6 image">
-                    <img src={img} loading="auto" alt="center" height="600"
+                    <img src={recharge} loading="auto" alt="center" height="600"
                          width="500"/>
                 </div>
             </div>

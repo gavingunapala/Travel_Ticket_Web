@@ -66,7 +66,7 @@ const LoginUser = () => {
                             <div>
                                 <h3 id="heading"><center>Log in</center></h3>
                             </div>
-                            <div><label><b>Email</b></label>
+                            <div><label><b>User Name</b></label>
                             </div>
                             <input className="form-control" type="text" id="input" placeholder=" "
                                    onChange={EmailSetter}

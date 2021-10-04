@@ -1,5 +1,5 @@
 import React, {useState,useEffect} from "react"
-import img from '../Images/undraw_logic_n6th.png';
+import physical from '../Images/physical.png';
 import firebaseapp from "../firebaseDB/firebase";
 import {useHistory, useParams} from "react-router-dom";
 
@@ -84,6 +84,7 @@ const GetPhysicalToken = () => {
 
     return (
         <div>
+            <br />
             <div className="row">
                 <div className="col-sm-2"></div>
                 <div className=" col-sm-3">
@@ -132,7 +133,7 @@ const GetPhysicalToken = () => {
                     </div>
                 </div>
                 <div className="col-sm-6 image">
-                    <img src={img} loading="auto" alt="center" height="600"
+                    <img src={physical} loading="auto" alt="center" height="600"
                          width="500"/>
                 </div>
             </div>
