@@ -85,7 +85,7 @@ const ViewAllTokenApplyed = () => {
                                             <th className="text-center">Route</th>
                                             <th className="text-center">Start</th>
                                             <th className="text-center">Destination</th>
-                                            <th className="text-center">Action</th>
+                                            {/*<th className="text-center">Action</th>*/}
                                         </tr>
                                         </thead>
                                         <tbody className="text-center">
@@ -103,11 +103,11 @@ const ViewAllTokenApplyed = () => {
                                                 <td>{j.Route}</td>
                                                 <td>{j.Start}</td>
                                                 <td>{j.Distination}</td>
-                                                <td>
-                                                    <a className="btn btn-danger" id="icon" >
-                                                        <em className="fa fa-edit"/>
-                                                    </a>
-                                                </td>
+                                                {/*<td>*/}
+                                                {/*    <a className="btn btn-danger" id="icon" >*/}
+                                                {/*        <em className="fa fa-edit"/>*/}
+                                                {/*    </a>*/}
+                                                {/*</td>*/}
                                             </tr>
                                         ))}
                                         </tbody>
