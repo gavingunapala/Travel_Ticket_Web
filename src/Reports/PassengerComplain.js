@@ -48,7 +48,7 @@ const PassengerComplain = () => {
                     {/*<Search/>*/}
                     <div className="col-xs-6">
                         <div className="searchBar">
-                            <input type="search" className="form-control" placeholder="Search Date or Inspector Id" onChange={event =>{setSearchWord(event.target.value)}}/>
+                            <input type="search" className="form-control" placeholder="Search Description or Name" onChange={event =>{setSearchWord(event.target.value)}}/>
                         </div>
                     </div>
                     {/*end*/}
