@@ -62,11 +62,7 @@ const ViewRoute = () => {
                             <span className="counter pull-right"></span>
                             <br/><br/>
                         </div>
-                        <a href="/" className="btn btn-primary" role="button">
-                            Customer Home
-                        </a>
-                        <a className="btn btn-success btngena" type="submit">Generate Report</a>
-                        <br /><br />
+
                         <div className="row1">
                             <div className="col-12">
                                 <div className="table-responsive">
