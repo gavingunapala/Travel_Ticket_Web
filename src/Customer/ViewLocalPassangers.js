@@ -58,17 +58,17 @@ const ViewLocalPassangers = () => {
                             <div className="col-12 col-sm-6 col-md-6">
                             </div>
                             <span className="counter pull-right"></span>
-                            <br/><br/>
+                            <br/>
                         </div>
                         <a className="btn btn-success btngena" type="submit" id={"generate"}onClick={genaratePDF}>Generate Report</a>
                         <br></br>
                         <div className="" id={'body'}>
                             <div><label> Fortune Inn & Suites </label>
                             </div>
-                            <div><label>{dateTime} </label><br/><br/>
+                            <div><label>{dateTime} </label><br/>
                             </div>
 
-                        <br /><br />
+                        <br />
                         <div className="row1">
                             <div className="col-12">
                                 <div className="table-responsive">

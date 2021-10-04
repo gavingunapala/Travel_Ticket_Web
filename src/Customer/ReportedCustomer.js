@@ -42,9 +42,9 @@ const ReportedCustomers = () =>{
                             <div className="col-12 col-sm-6 col-md-6">
                             </div>
                             <span className="counter pull-right"></span>
-                            <br/><br/>
+                            <br/>
                         </div>
-                        <br /><br />
+                        <br />
                         <div className="row1">
                             <div className="col-12">
                                 <div className="table-responsive">
