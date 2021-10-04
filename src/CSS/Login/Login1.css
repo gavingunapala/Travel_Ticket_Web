@@ -1,0 +1,62 @@
+.login-one-form {
+    transform: translate(-50%, -50%);
+    top: 46%;
+    max-width: 350px;
+    width: 350px;
+    left: 50%;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 5px;
+    position: relative;
+    box-shadow: 3px 3px 4px rgba(0,0,0,0.2);
+    opacity: 0.85;
+
+}
+
+.login-one {
+    background-image: url("../../Images/loginbg.png");
+    min-height: 100%;
+    height: 1000px;
+    background-size: cover;
+}
+
+.login-one-ico {
+    padding: 30px;
+    font-size: 50px;
+    text-align: center;
+}
+
+/*.form-group {*/
+/*    text-align: center;*/
+/*}*/
+
+
+
+#input {
+    margin: 2px;
+    border-bottom-color: #000000;
+    border-left-color: #000000;
+    border-right-color: #000000;
+    border-top-color: #000000;
+    border-bottom-width: 3px;
+    border-left-width: 3px;
+    border-right-width: 3px;
+    border-top-width: 3px;
+
+}
+
+#button {
+    width: 100%;
+    margin: 2px;
+
+}
+
+#heading {
+    padding-bottom: 10px;
+}
+
+#signupbutton{
+    color: #103eb5;
+    float: right;
+}
+

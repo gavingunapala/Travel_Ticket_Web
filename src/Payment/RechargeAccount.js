@@ -106,6 +106,7 @@ const RechargeAccount = () =>{
                                                 </button>
                                             </center>
                                         </div>
+                                        <br></br>
                                     </div>
                                 </div>
                             </div>

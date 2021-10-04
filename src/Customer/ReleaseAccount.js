@@ -55,8 +55,6 @@ const ReleaseAccount = () =>{
         });
         alert("added");
         his.push('/ReportedCustomers');
-
-
     }
 
 

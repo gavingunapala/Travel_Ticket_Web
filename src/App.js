@@ -25,6 +25,8 @@ import AddDrivers from "./Drivers/AddDrivers";
 import EndVisualFeedback from "./Reports/EndVisualFeedback";
 import GenerateViewAllTokenApplyed from "./Customer/GenerateViewAllTokenApplyed";
 import RechargeAccount from "./Payment/RechargeAccount";
+import WebJourney from "./Reports/WebJourney";
+
 
 
 function App() {
@@ -61,6 +63,8 @@ function App() {
         <Route exact path="/EndVisualFeedback" component={EndVisualFeedback}/>
         <Route exact path="/GenerateViewAllTokenApplyed" component={GenerateViewAllTokenApplyed}/>
         <Route exact path="/RechargeAccount" component={RechargeAccount}/>
+        <Route exact path="/WebJourney" component={WebJourney}/>
+
 
 
 
