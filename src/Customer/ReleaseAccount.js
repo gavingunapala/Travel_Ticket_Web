@@ -79,7 +79,7 @@ const ReleaseAccount = () =>{
                                         <div><label>Nic</label><input className="form-control" type="text"  value={Nic} />
                                         </div>
                                         <br/>
-                                        <button className="btn btn-warning" type="submit" onClick={onSubmit} >&nbsp;Add token </button>
+                                        <button className="btn btn-warning" type="submit" onClick={onSubmit} >&nbsp;Release Account </button>
                                         <br />
                                         <br />
                                     </div>
