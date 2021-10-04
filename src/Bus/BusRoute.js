@@ -6,6 +6,7 @@ import firebaseapp from "../firebaseDB/firebase";
 const BusRoute = () => {
 
     const[list, setlist] = useState([]);
+    const [SearchWord, setSearchWord] = useState('');
 
     useEffect(() => {
         const list = firebaseapp.database().ref('Bus');
@@ -30,7 +31,7 @@ const BusRoute = () => {
                     {/*<Search/>*/}
                     <div className="col-xs-6">
                         <div className="searchBar">
-                            <input type="search" className="form-control" placeholder="Search Name or NIC NUMBER"/>
+                            <input type="search" className="form-control" placeholder="Search Route ID or Bus ID" onChange={event =>{setSearchWord(event.target.value)}}/>
                         </div>
                     </div>
                     {/*end*/}
@@ -60,7 +61,13 @@ const BusRoute = () => {
                                         </tr>
                                         </thead>
                                         <tbody className="text-center">
-                                        {list.map((b)=>(
+                                        {list.filter((val)=>{
+                                            if(SearchWord ==""){
+                                                return val
+                                            }else if(val.BusID.toLowerCase().includes(SearchWord.toLowerCase())||val.RouteID.toLowerCase().includes(SearchWord.toLowerCase()) ){
+                                                return val
+                                            }
+                                        }).map((b)=>(
                                             <tr>
                                                 <td>{b.RouteID}</td>
                                                 <td>{b.BusID}</td>
@@ -68,31 +75,6 @@ const BusRoute = () => {
                                                 <td>{b.NoofSeats}</td>
                                             </tr>
                                         ))}
-
-                                        {/*    return (*/}
-                                        {/*        <tr>*/}
-                                        {/*            <td>{customer.Name}</td>*/}
-                                        {/*            <td>{customer.Address}</td>*/}
-                                        {/*            <td>{customer.PhoneNumber}</td>*/}
-                                        {/*            <td>{customer.NICNumber}</td>*/}
-                                        {/*            <td>{customer.Email}</td>*/}
-                                        {/*            <td>{customer.Password}</td>*/}
-                                        {/*            <br />*/}
-                                        {/*            <Link class="btn btn-success" role="button" to={`UpdateCustomers/${customer._id}`}>*/}
-                                        {/*                <em className="fa fa-edit" id="icon"></em>*/}
-                                        {/*            </Link>*/}
-                                        {/*            <a className="btn btn-danger" id="icon">*/}
-                                        {/*                <em className="fa fa-trash"*/}
-                                        {/*                    onClick={() => {*/}
-                                        {/*                        if (window.confirm("Are you sure you want to delete this Customer?")) {*/}
-                                        {/*                            deleteCustomer(customer._id)*/}
-                                        {/*                        }*/}
-                                        {/*                        ;*/}
-                                        {/*                    }}/></a>*/}
-                                        {/*            <br /><br />*/}
-                                        {/*        </tr>*/}
-                                        {/*    );*/}
-                                        {/*})}*/}
                                         </tbody>
                                     </table>
 
