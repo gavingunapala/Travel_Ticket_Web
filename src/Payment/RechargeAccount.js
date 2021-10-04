@@ -1,12 +1,17 @@
 import React, {useEffect, useState} from "react";
 import firebaseapp from "../firebaseDB/firebase";
 import img from "../Images/undraw_logic_n6th.png";
+import {useHistory, useParams} from "react-router-dom";
 
 
 
 const RechargeAccount = () =>{
 
-    const[id, setid] = useState("Aparna");
+    const { id} = useParams();
+    console.log(id)
+    const his = useHistory();
+
+    // const[id, setid] = useState("");
 
     let fulltotle ;
 
@@ -26,9 +31,9 @@ const RechargeAccount = () =>{
     const TotleSetter = (e) => {
         setadd(e.target.value);
     }
-    const nameSetter = (e) => {
-        setid(e.target.value);
-    }
+    // const nameSetter = (e) => {
+    //     setid(e.target.value);
+    // }
 
     useEffect(() => {
         const list = firebaseapp.database().ref('LocalPassnger').child(id);
@@ -63,6 +68,7 @@ const RechargeAccount = () =>{
             accBalance: fulltotle.toString(),
         });
         alert("Payment added");
+        his.push('/');
     }
     return(
         <div className={'background-image'}>

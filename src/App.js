@@ -43,7 +43,7 @@ function App() {
         <Route exact path="/Hope" component={Hope}/>
         <Route exact path="/StartJourney" component={StartJourney}/>
         <Route exact path="/ViewPayment" component={ViewPayment}/>
-        <Route exact path="/GetPhysicalToken" component={GetPhysicalToken}/>
+        <Route exact path="/GetPhysicalToken/:id" component={GetPhysicalToken}/>
         <Route exact path="/BusRoute" component={BusRoute}/>
         <Route exact path="/AddBusRoute" component={AddBusRoute}/>
         <Route exact path="/ReportedCustomers" component={ReportedCustomers}/>
@@ -65,7 +65,7 @@ function App() {
         <Route exact path="/AddDrivers" component={AddDrivers}/>
         <Route exact path="/EndVisualFeedback" component={EndVisualFeedback}/>
         <Route exact path="/GenerateViewAllTokenApplyed" component={GenerateViewAllTokenApplyed}/>
-        <Route exact path="/RechargeAccount" component={RechargeAccount}/>
+        <Route exact path="/RechargeAccount/:id" component={RechargeAccount}/>
         <Route exact path="/WebJourney" component={WebJourney}/>
 
         <Route exact path="/Login" component={Login}/>
