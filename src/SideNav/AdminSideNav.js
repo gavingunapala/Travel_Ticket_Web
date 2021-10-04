@@ -8,7 +8,7 @@ const AdminSideNav = () => {
 
     const Logout = () => {
         localStorage.clear();
-        history.push('/login');
+        history.push('/');
     };
 
     return (

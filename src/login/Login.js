@@ -105,7 +105,6 @@ console.log(lenth)
                             <button className="btn btn-primary" id="button" type="submit"
                                     onClick={onSubmit}
                             >Log in</button>
-                            <a href={"/"} type="submit" id={"signupbutton"}><center><b><u>Sign Up</ u></b></center></a><br />
                         </div>
                     </div>
                 </div>

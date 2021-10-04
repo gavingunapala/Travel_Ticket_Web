@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react"
-import img from '../Images/undraw_logic_n6th.png';
+import visual from '../Images/visual.png';
 import firebaseapp from "../firebaseDB/firebase";
 import {useHistory} from "react-router-dom";
 
@@ -104,7 +104,7 @@ const VisualFeedback = () => {
                         <div>
                             <div className="card">
                                 <br />
-                                <h2 className="text-center">Registration</h2>
+                                <h2 className="text-center">Start Journey</h2>
                                 <br />
                                 <div className="container   ">
                                     <div><label>Name</label><input className="form-control" type="text" onChange={NameSetter}/>
@@ -187,7 +187,7 @@ const VisualFeedback = () => {
                     </div>
                 </div>
                 <div className="col-sm-6 image">
-                    <img src={img} loading="auto" alt="center" height="600"
+                    <img src={visual} loading="auto" alt="center" height="600"
                          width="500"/>
                 </div>
             </div>
