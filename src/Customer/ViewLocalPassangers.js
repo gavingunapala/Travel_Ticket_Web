@@ -2,10 +2,15 @@ import React,{useEffect, useState} from 'react';
 import AdminSideNav from "../SideNav/AdminSideNav";
 import '../CSS/tableEmployee.css';
 import firebaseapp from "../firebaseDB/firebase";
+import jsPDF from "jspdf";
 
 const ViewLocalPassangers = () => {
 
     const[list, setlist] = useState([]);
+    var today = new Date();
+    var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+    var time = today.getHours() + ":" + (today.getMinutes()<10?'0':'') + today.getMinutes() + ":" + (today.getSeconds()<10?'0':'') + today.getSeconds();
+    var dateTime = date+' '+time;
     const [SearchWord, setSearchWord] = useState('');
 
     useEffect(() => {
@@ -23,6 +28,19 @@ const ViewLocalPassangers = () => {
         })
     }, []);
 
+    const genaratePDF=()=> {
+        let doc = new jsPDF('p', 'pt', 'a1');
+        doc.html(document.querySelector('#body'), {
+            callback: function (doc) {
+                doc.save('LocalPassenger.pdf');
+            },
+            margin: [60, 60, 60, 60],
+            x: 32,
+            y: 32
+        });
+    }
+
+
     return (
         <div>
             <div className="row1">
@@ -35,13 +53,20 @@ const ViewLocalPassangers = () => {
                         </div>
                     </div>
                     {/*end*/}
-                    <div className="">
+                    <div className="" >
                         <div className="row1">
                             <div className="col-12 col-sm-6 col-md-6">
                             </div>
                             <span className="counter pull-right"></span>
                             <br/><br/>
                         </div>
+                        <a className="btn btn-success btngena" type="submit" id={"generate"}onClick={genaratePDF}>Generate Report</a>
+                        <br></br>
+                        <div className="" id={'body'}>
+                            <div><label> Fortune Inn & Suites </label>
+                            </div>
+                            <div><label>{dateTime} </label><br/><br/>
+                            </div>
 
                         <br /><br />
                         <div className="row1">
@@ -76,6 +101,7 @@ const ViewLocalPassangers = () => {
                                     <br/>
                                 </div>
                             </div>
+                        </div>
                         </div>
                     </div></div>
             </div>
