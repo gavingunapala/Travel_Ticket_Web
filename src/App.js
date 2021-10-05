@@ -49,7 +49,6 @@ function App() {
         <Route exact path="/ReleaseAccount/:id" component={ReleaseAccount}/>
         <Route exact path="/ViewDrivers" component={ViewDrivers}/>
         <Route exact path="/ViewLocalPassangers" component={ViewLocalPassangers}/>
-        <Route exact path="/GenaratePDF/:id" component={GenaratePDF}/>
         <Route exact path="/VisualFeedback" component={VisualFeedback}/>
         <Route exact path="/AddDrivers" component={AddDrivers}/>
         <Route exact path="/EndVisualFeedback" component={EndVisualFeedback}/>
