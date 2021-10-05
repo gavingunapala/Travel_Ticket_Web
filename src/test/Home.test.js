@@ -8,8 +8,5 @@ test('Should render Home component',()=>{
 
     //tests
     expect(HomeElement).toBeInTheDocument();
-    // expect(HomeElement).toHaveTextContent("home")
-
-
-
+    expect(HomeElement).toHaveTextContent("home")
 })

@@ -25,8 +25,6 @@ const Login = () => {
     }
 
 
-    const [a, seta] = useState('');
-
 
     const onSubmit = (e) => {
         if(Email == "0"){
@@ -44,9 +42,6 @@ const Login = () => {
 
             if (Email == "admin" && Password == "123") {
                 his.push('/AdminSideNav');
-            }
-            else if(a==""){
-                alert("username is not valid")
             }
             else if(Email == snapshot.val().name){
 

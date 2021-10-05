@@ -54,16 +54,16 @@ const RechargeAccount = () =>{
     fulltotle = (balance*1)+(add*1)
     const onSubmit = (e) => {
         if(Type == ""){
-            alert("Enter Valid Card Type")
-        }
-        else if(ccNumber == ""){
-            alert("Enter Valid Card Number")
-        }
-        else if(date == ""){
-            alert("Enter Expire Date")
-        }
-        else if(add == ""){
-            alert("Enter Amount you want to Add")
+                alert("Enter Valid Card Type")
+            }
+            else if(ccNumber == ""){
+                alert("Enter Valid Card Number")
+            }
+            else if(date == ""){
+                alert("Enter Expire Date")
+            }
+            else if(add == ""){
+                alert("Enter Amount you want to Add")
         }
         else{
         const d2Ref =firebaseapp.database().ref('LocalPassnger').child(id);
