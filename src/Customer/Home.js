@@ -6,7 +6,7 @@ import logo3 from '../Images/logo3.gif'
 const Home = () => {
 
     return (
-        <div>
+        <div data-testid = "homeTest-1">
             <br />
             {/*<Greeting isLoggedIn={isLoggedIn} />*/}
             <br /><br /><br />

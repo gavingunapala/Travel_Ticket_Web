@@ -53,6 +53,19 @@ const RechargeAccount = () =>{
 
     fulltotle = (balance*1)+(add*1)
     const onSubmit = (e) => {
+        if(Type == ""){
+                alert("Enter Valid Card Type")
+            }
+            else if(ccNumber == ""){
+                alert("Enter Valid Card Number")
+            }
+            else if(date == ""){
+                alert("Enter Expire Date")
+            }
+            else if(add == ""){
+                alert("Enter Amount you want to Add")
+        }
+        else{
         const d2Ref =firebaseapp.database().ref('LocalPassnger').child(id);
         d2Ref.update({
             accBalance: fulltotle.toString(),
@@ -72,6 +85,7 @@ const RechargeAccount = () =>{
 
         alert("Payment added");
         his.push('/');
+        }
     }
 
     return(
@@ -82,7 +96,7 @@ const RechargeAccount = () =>{
                     <div><strong></strong><label></label></div>
                     <div className=" justify-content-center align-items-center">
                         <div>
-                            <div className="card">
+                            <form className="card">
                                 <br/>
                                 <h2 className="text-center">Payment</h2>
                                 <br/>
@@ -132,7 +146,7 @@ const RechargeAccount = () =>{
                                         <br></br>
                                     </div>
                                 </div>
-                            </div>
+                            </form>
                         </div>
                     </div>
                 </div>

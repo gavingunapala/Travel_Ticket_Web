@@ -48,14 +48,6 @@ const GetPhysicalToken = () => {
 
 
         jlist.on('value',(snapshot)=>{
-            // console.log(snapshot.val());
-            // const journey = snapshot.val();
-            //
-            // for (let id in journey){
-            //     TripList.push(journey[id] )
-            //
-            // }
-            // console.log(TripList)
             setjlist(snapshot.val().nic)
         })
 
@@ -67,18 +59,37 @@ const GetPhysicalToken = () => {
 
 
     const onSubmit = (e) => {
-        const d2Ref =firebaseapp.database().ref("Token");
-        const d2 = {
-            Name:id,
-            Phone:Phone,
-            Nic:jlist,
-            Route:Route,
-            Start:Start,
-            Distination:Distination
-        };
-        d2Ref.push(d2);
-        alert("added");
-        his.push('/');
+        if(Phone==""){
+            alert('phone number must be add')
+        }
+        else if(Route == ""){
+            alert('Route number must be add')
+        }
+        else if(Start== ""){
+            alert('Starting point must be add')
+        }
+        else if(Distination== ""){
+            alert('Destination point must be add')
+        }
+        else {
+            const d2Ref =firebaseapp.database().ref("Token");
+            const d2 = {
+                Name:id,
+                Phone:Phone,
+                Nic:jlist,
+                Route:Route,
+                Start:Start,
+                Distination:Distination
+            };
+            d2Ref.push(d2);
+            alert("added");
+            his.push('/');
+        }
+
+
+
+
+
     }
 
 
@@ -91,14 +102,14 @@ const GetPhysicalToken = () => {
                     <div><strong></strong><label></label></div>
                     <div className=" justify-content-center align-items-center">
                         <div>
-                            <div className="card">
+                            <form className="card">
                                 <br />
                                 <h2 className="text-center">Get Token</h2>
                                 <br />
                                 <div className="container">
                                     <div><label>Name</label><input className="form-control" type="text"  value={id} disabled={true}/>
                                     </div>
-                                    <div><label>Phone Number</label><input className="form-control" type="Number" onChange={PhoneSetter}/>
+                                    <div><label>Phone Number</label><input className="form-control" type="Number" onChange={PhoneSetter} />
                                     </div>
                                     <div><label>NIC</label><input className="form-control" type="text" value={jlist} disabled={true}/>
                                     </div>
@@ -128,7 +139,7 @@ const GetPhysicalToken = () => {
                                         <br />
                                     </div>
                                 </div>
-                            </div>
+                            </form>
                         </div>
                     </div>
                 </div>
