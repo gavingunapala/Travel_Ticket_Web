@@ -67,7 +67,6 @@ const ViewLocalPassangers = () => {
                             </div>
                             <div><label>{dateTime} </label><br/>
                             </div>
-
                         <br />
                         <div className="row1">
                             <div className="col-12">
@@ -99,13 +98,13 @@ const ViewLocalPassangers = () => {
                                         ))}
                                         </tbody>
                                     </table>
-
                                     <br/>
                                 </div>
                             </div>
                         </div>
                         </div>
-                    </div></div>
+                    </div>
+                </div>
             </div>
         </div>
     )

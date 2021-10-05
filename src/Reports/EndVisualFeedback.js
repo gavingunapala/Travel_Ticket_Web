@@ -4,7 +4,7 @@ import firebaseapp from "../firebaseDB/firebase";
 import {useHistory} from "react-router-dom";
 import { useLocation } from 'react-router-dom';
 
-//customer
+
 const EndVisualFeedback = () => {
 
     const location1 = useLocation();
@@ -24,8 +24,6 @@ const EndVisualFeedback = () => {
     const[value, setvalue] = useState();
     const[route1, setroute1] = useState("");
 
-    // var name1 = location1.set.Name
-    // console.log(name1)
 
     useEffect(() => {
         setname1(location1.state.Name)
@@ -46,8 +44,6 @@ const EndVisualFeedback = () => {
         }else if(destination=="Mathara"){
             setvalue(10)
         }
-
-
     }, [destination,value]);
 
     let abc = setkm*value
@@ -72,60 +68,6 @@ const EndVisualFeedback = () => {
         his.push('/');
     }
 
-
-
-
-
-    // const history = useHistory();
-    // const[maxdis, setmasdis] = useState("");
-    // const[setkm, setsetkm] = useState("");
-    // const [state, setState] = useState(true);
-    // const[acc, setacc] = useState("");
-    // const[total, settotal] = useState("");
-    //
-    // const accSetter = (e) => {
-    //     setacc(e.target.value);
-    // }
-    //
-    // const[value, setvalue] = useState("R002");
-    // console.log(value)
-    // const startSetter = (e) => {
-    //     setvalue(e.target.value);
-    // }
-    // useEffect(() => {
-    //     console.log(value)
-    //     const list = firebaseapp.database().ref('Route').child(value);
-    //     const journeyList =[];
-    //     // const BusesList =[];
-    //     settotal(setkm*maxdis)
-    //
-    //     list.on('value',(snapshot)=>{
-    //         console.log(snapshot.val());
-    //         const journeies = snapshot.val();
-    //         console.log(snapshot.val().RouteID)
-    //         setmasdis(snapshot.val().MaximumDistance)
-    //         setsetkm(snapshot.val().FarePerkm)
-    //         // for (let id in journeies){
-    //         //     journeyList.push(journeies[id] )
-    //         //
-    //         // }
-    //         console.log(journeyList)
-    //         setlist(journeyList)
-    //     })
-    // }, [value,acc]);
-    //
-    // const changestate = () => {
-    //     if(acc >= total){
-    //         console.log(total)
-    //         setState(false)
-    //     }else{
-    //         console.log(total)
-    //         setState(true)
-    //     }
-    //     // let path = `/Payment`;
-    //     // history.push(path);
-    // }
-
     return (
         <div>
             <div className="row">
@@ -146,8 +88,6 @@ const EndVisualFeedback = () => {
                                         </div>
                                         <div><label>Location</label><input className="form-control"
                                                                            type="text" value={location}/></div>
-                                        {/*<div><label>FarePerkm</label><input className="form-control"*/}
-                                        {/*                                    type="Number" value={setkm}/></div>*/}
                                         <div><label htmlFor="type">Destination</label>
                                             <select className="form-control"
                                                     name="type"
@@ -171,15 +111,6 @@ const EndVisualFeedback = () => {
 
 
                                         <br/>
-                                        {/*disabled={state}*/}
-                                        {/*<div className="row">*/}
-                                        {/*    <div className="col-md-12 text-center content-right">*/}
-                                        {/*        <button className="btn btn-success form-btn" onClick={changestate}*/}
-                                        {/*                type="submit">Click to check Account Balance*/}
-                                        {/*        </button>*/}
-                                        {/*    </div>*/}
-                                        {/*</div>*/}
-
                                         <div className="row">
                                             <div className="col-md-12 text-center content-right">
                                                 <button className="btn btn-danger form-btn" onClick={onSubmit}
@@ -187,8 +118,6 @@ const EndVisualFeedback = () => {
                                                 </button>
                                             </div>
                                         </div>
-
-
                                         <br />
                                         <br />
                                     </div>

@@ -3,10 +3,7 @@ import physical from '../Images/physical.png';
 import firebaseapp from "../firebaseDB/firebase";
 import {useHistory, useParams} from "react-router-dom";
 
-
-//customer
 const GetPhysicalToken = () => {
-
 
     const { id} = useParams();
     console.log(id)
@@ -18,14 +15,8 @@ const GetPhysicalToken = () => {
     const[Route, setRoute] = useState("");
     const[Start, setStart] = useState("");
     const[Distination, setDistination] = useState("");
-
     const[jlist, setjlist] = useState([]);
 
-    // setname(id)
-
-    // const nameSetter = (e) => {
-    //     setname(e.target.value);
-    // }
     const PhoneSetter = (e) => {
         setPhone(e.target.value);
     }
@@ -50,13 +41,10 @@ const GetPhysicalToken = () => {
         jlist.on('value',(snapshot)=>{
             setjlist(snapshot.val().nic)
         })
-
-
     }, []);
 
 
     const onSubmit = (e) => {
-
         if(Phone==""){
             alert('phone number must be add')
         }
@@ -83,11 +71,6 @@ const GetPhysicalToken = () => {
             alert("added");
             his.push('/');
         }
-
-
-
-
-
     }
 
 

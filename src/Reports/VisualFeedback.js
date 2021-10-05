@@ -3,7 +3,7 @@ import visual from '../Images/visual.png';
 import firebaseapp from "../firebaseDB/firebase";
 import {useHistory} from "react-router-dom";
 
-//customer
+
 const VisualFeedback = () => {
 
     const[list, setlist] = useState([]);
@@ -29,11 +29,6 @@ const VisualFeedback = () => {
         setsetkm(e.target.value);
     }
 
-    // const destinationSetter = (e) => {
-    //     setdestination(e.target.value);
-    // }
-    // console.log(destination)
-
     const[value, setvalue] = useState("R002");
     console.log(value)
     const startSetter = (e) => {
@@ -43,7 +38,6 @@ const VisualFeedback = () => {
         console.log(value)
         const list = firebaseapp.database().ref('Route').child(value);
         const journeyList =[];
-        // const BusesList =[];
         settotal(setkm*maxdis)
 
         list.on('value',(snapshot)=>{
@@ -52,20 +46,10 @@ const VisualFeedback = () => {
             console.log(snapshot.val().RouteID)
             setmasdis(snapshot.val().MaximumDistance)
             setsetkm(snapshot.val().FarePerkm)
-            // for (let id in journeies){
-            //     journeyList.push(journeies[id] )
-            //
-            // }
             console.log(journeyList)
             setlist(journeyList)
         })
     }, [value,acc]);
-
-    // const routeChange = () => {
-    //     let path = `/Payment`;
-    //     history.push(path);
-    // }
-
 
 
     const changestate = () => {
@@ -76,8 +60,6 @@ const VisualFeedback = () => {
             console.log(total)
             setState(true)
         }
-        // let path = `/Payment`;
-        // history.push(path);
     }
 
     const startjourney = ()=>{
@@ -142,8 +124,6 @@ const VisualFeedback = () => {
                                                                         type="Number"  value={maxdis} /></div>
                                         <div><label>FarePerkm</label><input className="form-control"
                                                                                   type="Number" value={setkm}/></div>
-
-
                                         <div><label>Total Price for distance</label><input className="form-control"
                                                                             type="Number" value={(setkm*maxdis)}/></div>
 
@@ -155,29 +135,6 @@ const VisualFeedback = () => {
                                                 </button>
                                             </div>
                                         </div>
-
-                                        {/*onClick={changestate}*/}
-                                        {/*<div><label htmlFor="type">Destination</label>*/}
-                                        {/*    <select className="form-control"*/}
-                                        {/*            name="type"*/}
-                                        {/*            id="type" onChange={destinationSetter}>*/}
-                                        {/*        <option>Choose</option>*/}
-                                        {/*        <option value={25}>Anuradhapura</option>*/}
-                                        {/*        <option value={15}>Boralutanna</option>*/}
-                                        {/*        <option value={10}>Colombo</option>*/}
-                                        {/*        <option value={35}>Dehiowita</option>*/}
-                                        {/*        <option value={20}>Ehaliyagoda</option>*/}
-                                        {/*    </select>*/}
-                                        {/*</div>*/}
-
-                                        {/*<div><label>FarePerkm</label><input className="form-control"*/}
-                                        {/*                                    type="Number" value={setkm}/></div>*/}
-
-
-                                        {/*<div><label>Total Price for distance</label><input className="form-control"*/}
-                                        {/*                                                   type="Number" value={(setkm*destination)}/></div>*/}
-
-
                                         <br />
                                         <br />
                                     </div>

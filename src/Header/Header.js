@@ -6,7 +6,6 @@ const Header = () => {
     return (
         <div>
             <nav className="navbar navbar-dark navbar-expand-md fixed-top bg-dark">
-                {/*<a href="https://icons8.com/icon/44053/star"></a>*/}
                 <div className="container">
                     <button data-bs-toggle="collapse" className="navbar-toggler" data-bs-target="#navcol-1"><span
                         className="visually-hidden">Toggle navigation</span><span

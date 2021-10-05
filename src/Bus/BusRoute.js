@@ -53,7 +53,6 @@ const BusRoute = () => {
                         </div>
                     </div>
                     {/*end*/}
-
                     <div className="" >
                         <div className="row1">
                             <div className="col-12 col-sm-6 col-md-6">
@@ -99,40 +98,15 @@ const BusRoute = () => {
                                                 <td>{b.NoofSeats}</td>
                                             </tr>
                                         ))}
-
-                                        {/*    return (*/}
-                                        {/*        <tr>*/}
-                                        {/*            <td>{customer.Name}</td>*/}
-                                        {/*            <td>{customer.Address}</td>*/}
-                                        {/*            <td>{customer.PhoneNumber}</td>*/}
-                                        {/*            <td>{customer.NICNumber}</td>*/}
-                                        {/*            <td>{customer.Email}</td>*/}
-                                        {/*            <td>{customer.Password}</td>*/}
-                                        {/*            <br />*/}
-                                        {/*            <Link class="btn btn-success" role="button" to={`UpdateCustomers/${customer._id}`}>*/}
-                                        {/*                <em className="fa fa-edit" id="icon"></em>*/}
-                                        {/*            </Link>*/}
-                                        {/*            <a className="btn btn-danger" id="icon">*/}
-                                        {/*                <em className="fa fa-trash"*/}
-                                        {/*                    onClick={() => {*/}
-                                        {/*                        if (window.confirm("Are you sure you want to delete this Customer?")) {*/}
-                                        {/*                            deleteCustomer(customer._id)*/}
-                                        {/*                        }*/}
-                                        {/*                        ;*/}
-                                        {/*                    }}/></a>*/}
-                                        {/*            <br /><br />*/}
-                                        {/*        </tr>*/}
-                                        {/*    );*/}
-                                        {/*})}*/}
                                         </tbody>
                                     </table>
-
                                     <br/>
                                 </div>
                             </div>
                         </div>
                         </div>
-                    </div></div>
+                    </div>
+                </div>
             </div>
         </div>
     )

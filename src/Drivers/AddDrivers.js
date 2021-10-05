@@ -2,7 +2,6 @@ import React, {useState} from "react"
 import driver from '../Images/diver.png';
 import firebaseapp from "../firebaseDB/firebase";
 
-//customer
 const AddDrivers = () => {
 
     const[Address, setAddress] = useState("");

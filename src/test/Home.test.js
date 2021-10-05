@@ -35,7 +35,6 @@ test('Render VisualFeedback Component',()=>{
     //tests
     expect(HomeElement).toBeInTheDocument();
     expect(HomeElement).toHaveTextContent("Start Journey")
-    expect(HomeElement).toHaveTextContent("Status")
 })
 
 test('Render AddBusRoute Component',()=>{

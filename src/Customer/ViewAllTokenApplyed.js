@@ -62,16 +62,9 @@ const ViewAllTokenApplyed = () => {
                         <a href="/GenerateViewAllTokenApplyed" className="btn btn-success " role="button" style={{float: 'left'}} >
                             Generate Report
                         </a>
-
-                        {/*<a herf = "/GenerateViewAllTokenApplyed" className="btn btn-success btngena" type="submit">Generate Report</a>*/}
                         <br></br>
                         <div className="" id={'body'}>
-                            {/*<div><label> Fortune Inn & Suites </label>*/}
-                            {/*</div>*/}
-                            {/*<div><label>{dateTime} </label><br/><br/>*/}
-                            {/*</div>*/}
                             <br /><br />
-                            {/*id={"UserToken"}*/}
                         <div className="row1">
                             <div className="col-12">
                                 <div className="table-responsive">
@@ -85,7 +78,6 @@ const ViewAllTokenApplyed = () => {
                                             <th className="text-center">Route</th>
                                             <th className="text-center">Start</th>
                                             <th className="text-center">Destination</th>
-                                            {/*<th className="text-center">Action</th>*/}
                                         </tr>
                                         </thead>
                                         <tbody className="text-center">
@@ -103,11 +95,6 @@ const ViewAllTokenApplyed = () => {
                                                 <td>{j.Route}</td>
                                                 <td>{j.Start}</td>
                                                 <td>{j.Distination}</td>
-                                                {/*<td>*/}
-                                                {/*    <a className="btn btn-danger" id="icon" >*/}
-                                                {/*        <em className="fa fa-edit"/>*/}
-                                                {/*    </a>*/}
-                                                {/*</td>*/}
                                             </tr>
                                         ))}
                                         </tbody>
@@ -117,7 +104,8 @@ const ViewAllTokenApplyed = () => {
                             </div>
                             </div>
                         </div>
-                    </div></div>
+                    </div>
+                </div>
             </div>
         </div>
     )

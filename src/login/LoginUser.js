@@ -11,9 +11,6 @@ const LoginUser = () => {
     const [lenth, setlenth] = useState(0);
 
     useEffect(() => {
-
-
-
     }, [Email]);
 
     const EmailSetter = (e) => {
@@ -28,9 +25,7 @@ const LoginUser = () => {
             alert("please enter user name")
         }
         else {
-
             const list = firebaseapp.database().ref('LocalPassnger').child(Email);
-            // orderByChild("id").startAt(Email);
             const LPList = [];
             console.log(Email)
             console.log(Password)
@@ -56,7 +51,6 @@ const LoginUser = () => {
     console.log(lenth)
     return (
         <div>
-
             <div id="login-one" className="login-one">
                 <br /><br />
                 <a className="foodPrices" href={"/"} >
