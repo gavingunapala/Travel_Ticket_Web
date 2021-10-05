@@ -7,7 +7,7 @@ import '../../src/CSS/Login/Login1.css'
 const Login = () => {
 
     const his = useHistory();
-    const [Email, setEmail] = useState('');
+    const [Email, setEmail] = useState('0');
     const [Password, setPassword] = useState('');
     const [lenth, setlenth] = useState(0);
 
@@ -24,19 +24,24 @@ const Login = () => {
         setPassword(e.target.value);
     }
 
+
+
     const onSubmit = (e) => {
+        if(Email == "0"){
+            alert("please enter user name")
+        }
+        else{
         const list = firebaseapp.database().ref('LocalPassnger').child(Email);
         // orderByChild("id").startAt(Email);
         const LPList =[];
         console.log(Email)
         console.log(Password)
-        // console.log(snapshot.val().name)
+
         list.on('value',(snapshot)=>{
+            console.log(snapshot.val().name)
+
             if (Email == "admin" && Password == "123") {
                 his.push('/AdminSideNav');
-            }
-            else if(snapshot.val().name==null){
-                alert("username is not valid")
             }
             else if(Email == snapshot.val().name){
 
@@ -52,23 +57,7 @@ const Login = () => {
             }
 
         })
-
-        //     e.preventDefault();
-    //     if (Email == "admin@gmail.com" && Password == "123") {
-    //         history.push('/AdminPanelCustomers');
-    //     } else {
-    //         const newCustomer = {
-    //             Email: Email,
-    //             Password: Password
-    //         };
-    //         axios.post('http://localhost:8070/customer/login', newCustomer).then((res) => {
-    //             history.push('/CustomerProfile');
-    //             localStorage.setItem('user', res.data._id);
-    //         }).catch((err) => {
-    //             //
-    //             alert("enter valid details..");
-    //         })
-    //     }
+        }
 
     }
 

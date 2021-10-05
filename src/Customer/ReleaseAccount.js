@@ -76,7 +76,7 @@ const ReleaseAccount = () =>{
                         <div>
                             <div className="card">
                                 <br />
-                                <h2 className="text-center">Get Token</h2>
+                                <h2 className="text-center">Release Account</h2>
                                 <br />
                                 <div className="container">
                                     <div><label>Name</label><input className="form-control" type="text" value={Name} />
