@@ -6,7 +6,7 @@ import '../../src/CSS/Login/Login1.css'
 const LoginUser = () => {
 
     const his = useHistory();
-    const [Email, setEmail] = useState('');
+    const [Email, setEmail] = useState('0');
     const [Password, setPassword] = useState('');
     const [lenth, setlenth] = useState(0);
 
@@ -24,29 +24,33 @@ const LoginUser = () => {
     }
 
     const onSubmit = (e) => {
-        const list = firebaseapp.database().ref('LocalPassnger').child(Email);
-        // orderByChild("id").startAt(Email);
-        const LPList =[];
-        console.log(Email)
-        console.log(Password)
-        list.on('value',(snapshot)=>{
-            console.log(snapshot.val());
-            if (Email == "admin" && Password == "123") {
-                his.push('/AdminSideNav');
-            }
-            else if(Email == snapshot.val().name){
+        if(Email == "0"){
+            alert("please enter user name")
+        }
+        else {
 
-                if( Password == snapshot.val().password){
-                    alert("logged")
-                    his.push(`/RechargeAccount/${snapshot.val().name}`);
-                }else{
-                    alert("password is not valid")
+            const list = firebaseapp.database().ref('LocalPassnger').child(Email);
+            // orderByChild("id").startAt(Email);
+            const LPList = [];
+            console.log(Email)
+            console.log(Password)
+            list.on('value', (snapshot) => {
+                console.log(snapshot.val());
+                if (Email == "admin" && Password == "123") {
+                    his.push('/AdminSideNav');
+                } else if (Email == snapshot.val().name) {
+
+                    if (Password == snapshot.val().password) {
+                        alert("logged")
+                        his.push(`/RechargeAccount/${snapshot.val().name}`);
+                    } else {
+                        alert("password is not valid")
+                    }
+                } else {
+                    alert("User name is not valid")
                 }
-            }
-            else {
-                alert("User name is not valid")
-            }
-        })
+            })
+        }
     }
 
     console.log(lenth)
