@@ -38,7 +38,6 @@ const Login = () => {
         console.log(Password)
 
         list.on('value',(snapshot)=>{
-            console.log(snapshot.val().name)
 
             if (Email == "admin" && Password == "123") {
                 his.push('/AdminSideNav');

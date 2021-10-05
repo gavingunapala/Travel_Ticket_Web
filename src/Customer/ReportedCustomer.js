@@ -26,7 +26,7 @@ const ReportedCustomers = () =>{
 
 
     return(
-        <div>
+        <div data-testid = "ReportedCustomerTest-1">
             <div className="row1">
                 <div className="col-2"> <AdminSideNav/></div>
                 <div className="col-10"> <br/>

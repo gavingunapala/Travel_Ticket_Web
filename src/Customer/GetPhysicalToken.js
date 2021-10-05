@@ -55,10 +55,8 @@ const GetPhysicalToken = () => {
     }, []);
 
 
-
-
-
     const onSubmit = (e) => {
+
         if(Phone==""){
             alert('phone number must be add')
         }
@@ -94,7 +92,7 @@ const GetPhysicalToken = () => {
 
 
     return (
-        <div>
+        <div data-testid = "GetPhysicalTokenTest-1-1">
             <br />
             <div className="row">
                 <div className="col-sm-2"></div>
