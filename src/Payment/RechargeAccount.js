@@ -37,11 +37,8 @@ const RechargeAccount = () =>{
         setcvvNumber(e.target.value);
     }
 
-
-
     useEffect(() => {
         const list = firebaseapp.database().ref('LocalPassnger').child(id);
-
         const reportedList =[];
         list.on('value',(snapshot)=>{
             console.log(snapshot.val().accBalance);
@@ -101,15 +98,12 @@ const RechargeAccount = () =>{
                                 <h2 className="text-center">Payment</h2>
                                 <br/>
                                 <div className="container   ">
-                                    <div><label>Customer ID</label><input className="form-control" type="text"
-                                                                          value={id} disabled={true}  />
+                                    <div><label>Customer ID</label><input className="form-control" type="text"value={id} disabled={true}  />
                                     </div>
-                                    <div><label>Account Balance</label><input className="form-control" type="text"
-                                                                          value={balance} disabled={true}/>
+                                    <div><label>Account Balance</label><input className="form-control" type="text"value={balance} disabled={true}/>
                                     </div>
 
-                                    <div><label>Name On Credit Card</label><input className="form-control" type="text"
-                                                                                 />
+                                    <div><label>Name On Credit Card</label><input className="form-control" type="text"/>
                                     </div>
                                     <div><label>Card Type</label><br/>
                                         <select  id="Type"className="form-control" onChange={typeSetter}>
@@ -122,16 +116,13 @@ const RechargeAccount = () =>{
                                     </div>
                                     <div className={"row"}>
                                         <div className="col-sm-7">
-                                            <label>Card Number</label><br/><input className="form-control" type="number"
-                                                                            onChange={ccSetter}      min='0' />
+                                            <label>Card Number</label><br/><input className="form-control" type="number" onChange={ccSetter} min='0' />
                                         </div>
                                         <div className="col-sm-4">
-                                            <label>CVV Number</label><br/><input className="form-control" type="number"
-                                                                               onChange={cvvSetter}  min='0' />
+                                            <label>CVV Number</label><br/><input className="form-control" type="number" onChange={cvvSetter}  min='0' />
                                         </div>
                                     </div>
-                                    <div><label>Expire Date</label><input className="form-control" type="date"
-                                                                    onChange={DateSetter}     /></div>
+                                    <div><label>Expire Date</label><input className="form-control" type="date" onChange={DateSetter}     /></div>
                                     <br/>
                                     <div className={"row"}>
                                         <div className="col-sm-7">

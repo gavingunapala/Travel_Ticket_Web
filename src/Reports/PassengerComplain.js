@@ -59,9 +59,6 @@ const PassengerComplain = () => {
                             <span className="counter pull-right"></span>
                             <br/>
                         </div>
-                        {/*<a href="/" className="btn btn-primary" role="button">*/}
-                        {/*    Customer Home*/}
-                        {/*</a>*/}
                         <a className="btn btn-success btngena" type="submit" id={"generate"}onClick={genaratePDF}>Generate Report</a>
                         <br />
                         <div className="" id={'body'}>
@@ -84,13 +81,6 @@ const PassengerComplain = () => {
                                         </tr>
                                         </thead>
                                         <tbody className="text-center">
-                                        {/*{Customer.filter((val)=>{*/}
-                                        {/*    if(SearchWord ==""){*/}
-                                        {/*        return val*/}
-                                        {/*    }else if(val.Name.toLowerCase().includes(SearchWord.toLowerCase())||val.NICNumber.toLowerCase().includes(SearchWord.toLowerCase()) ){*/}
-                                        {/*        return val*/}
-                                        {/*    }*/}
-
                                         {list.filter((val)=>{
                                             if(SearchWord ==""){
                                                 return val
@@ -106,32 +96,6 @@ const PassengerComplain = () => {
                                                 <td>{c.time}</td>
                                             </tr>
                                         ))}
-
-                                        {/*}).map((customer) => {*/}
-                                        {/*    return (*/}
-                                        {/*        <tr>*/}
-                                        {/*            <td>{customer.Name}</td>*/}
-                                        {/*            <td>{customer.Address}</td>*/}
-                                        {/*            <td>{customer.PhoneNumber}</td>*/}
-                                        {/*            <td>{customer.NICNumber}</td>*/}
-                                        {/*            <td>{customer.Email}</td>*/}
-                                        {/*            <td>{customer.Password}</td>*/}
-                                        {/*            <br />*/}
-                                        {/*            <Link class="btn btn-success" role="button" to={`UpdateCustomers/${customer._id}`}>*/}
-                                        {/*                <em className="fa fa-edit" id="icon"></em>*/}
-                                        {/*            </Link>*/}
-                                        {/*            <a className="btn btn-danger" id="icon">*/}
-                                        {/*                <em className="fa fa-trash"*/}
-                                        {/*                    onClick={() => {*/}
-                                        {/*                        if (window.confirm("Are you sure you want to delete this Customer?")) {*/}
-                                        {/*                            deleteCustomer(customer._id)*/}
-                                        {/*                        }*/}
-                                        {/*                        ;*/}
-                                        {/*                    }}/></a>*/}
-                                        {/*            <br /><br />*/}
-                                        {/*        </tr>*/}
-                                        {/*    );*/}
-                                        {/*})}*/}
                                         </tbody>
                                     </table>
                                     <br/>
@@ -139,7 +103,8 @@ const PassengerComplain = () => {
                             </div>
                         </div>
                         </div>
-                    </div></div>
+                    </div>
+                </div>
             </div>
         </div>
     )

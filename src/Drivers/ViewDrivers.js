@@ -39,7 +39,6 @@ const ViewDrivers = () => {
             x: 32,
             y: 32
         });
-
     }
 
     return (
@@ -103,13 +102,13 @@ const ViewDrivers = () => {
                                         ))}
                                         </tbody>
                                     </table>
-
                                     <br/>
                                 </div>
                             </div>
                         </div>
                         </div>
-                    </div></div>
+                    </div>
+                </div>
             </div>
         </div>
     )

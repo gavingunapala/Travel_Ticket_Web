@@ -2,7 +2,7 @@ import React, {useState} from "react"
 import img from '../Images/undraw_logic_n6th.png';
 import firebaseapp from "../firebaseDB/firebase";
 
-//customer
+
 const StartJourney = () => {
 
     const[name, setname] = useState("");

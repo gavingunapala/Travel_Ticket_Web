@@ -3,7 +3,6 @@ import img from '../Images/undraw_logic_n6th.png';
 import firebaseapp from "../firebaseDB/firebase";
 import AddBus from "../Images/AddBus.gif"
 
-//customer
 const StartJourney = () => {
 
     const[route, setroute] = useState("");

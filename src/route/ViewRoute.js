@@ -88,7 +88,8 @@ const ViewRoute = () => {
                                 </div>
                             </div>
                         </div>
-                    </div></div>
+                    </div>
+                </div>
             </div>
         </div>
     )

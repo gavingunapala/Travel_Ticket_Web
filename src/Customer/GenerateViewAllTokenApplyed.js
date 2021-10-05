@@ -64,14 +64,12 @@ const GenerateViewAllTokenApplyed = () => {
                         </a>
                         <a className="btn btn-success btngena" type="submit" id={"generate"}onClick={genaratePDF}>Generate Report</a>
                         <br></br>
-
                         <div className="" id={'body'}>
                             <div><label> Fortune Inn & Suites </label>
                             </div>
                             <div><label>{dateTime} </label><br/>
                             </div>
                             <br />
-                        {/*id={"UserToken"}*/}
                         <div className="row1">
                             <div className="col-12">
                                 <div className="table-responsive">
@@ -103,11 +101,6 @@ const GenerateViewAllTokenApplyed = () => {
                                                 <td>{j.Route}</td>
                                                 <td>{j.Start}</td>
                                                 <td>{j.Distination}</td>
-                                                {/*<td>*/}
-                                                {/*    <a className="btn btn-success" id="icon" onClick={genaratePDF}>*/}
-                                                {/*        <em className="fa fa-edit"/>*/}
-                                                {/*    </a>*/}
-                                                {/*</td>*/}
                                             </tr>
                                         ))}
                                         </tbody>
@@ -117,7 +110,8 @@ const GenerateViewAllTokenApplyed = () => {
                             </div>
                         </div>
                         </div>
-                    </div></div>
+                    </div>
+                </div>
             </div>
         </div>
     )

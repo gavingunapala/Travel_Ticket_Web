@@ -13,14 +13,10 @@ const ReleaseAccount = () =>{
     console.log(id)
 
     const[list, setlist] = useState([]);
-
     const[Name, setName] = useState([]);
     const[status, setstatus] = useState([]);
     const[Address, setAddress] = useState([]);
     const[Nic, setNic] = useState([]);
-
-
-
 
     const statusSetter = (e) => {
         setstatus(e.target.value);
@@ -37,8 +33,6 @@ const ReleaseAccount = () =>{
             setstatus(snapshot.val().accStatus)
             setAddress(snapshot.val().address)
             setNic(snapshot.val().nic)
-
-
             console.log(reportedList)
             setlist(reportedList)
         })
@@ -103,7 +97,6 @@ const ReleaseAccount = () =>{
                          width="500"/>
                 </div>
             </div>
-
         </div>
     );
 }

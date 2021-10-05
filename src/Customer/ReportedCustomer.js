@@ -4,9 +4,7 @@ import firebaseapp from "../firebaseDB/firebase";
 
 
 const ReportedCustomers = () =>{
-
     const[list, setlist] = useState([]);
-    const [SearchWord, setSearchWord] = useState('');
 
     useEffect(() => {
         const list = firebaseapp.database().ref('LocalPassnger');
@@ -26,7 +24,7 @@ const ReportedCustomers = () =>{
 
 
     return(
-        <div>
+        <div data-testid = "ReportedCustomerTest-1">
             <div className="row1">
                 <div className="col-2"> <AdminSideNav/></div>
                 <div className="col-10"> <br/>
@@ -57,17 +55,11 @@ const ReportedCustomers = () =>{
                                             <th className="text-center">address</th>
                                             <th className="text-center">Status</th>
                                             <th className="text-center">Action</th>
-
                                         </tr>
                                         </thead>
                                         <tbody className="text-center">
                                         {list.filter((val)=>{
                                             if(val.accStatus =="hold"){
-                                                // if(SearchWord ==""){
-                                                //     return val
-                                                // }else if(val.name.toLowerCase().includes(SearchWord.toLowerCase())||val.nic.toLowerCase().includes(SearchWord.toLowerCase()) ){
-                                                //     return val
-                                                // }
                                             return val
                                         }else{
                                             return null
@@ -91,7 +83,8 @@ const ReportedCustomers = () =>{
                                 </div>
                             </div>
                         </div>
-                    </div></div>
+                    </div>
+                </div>
             </div>
         </div>
     );

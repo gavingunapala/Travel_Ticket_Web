@@ -80,9 +80,7 @@ const ViewPayment = () =>{
                                             <th className="text-center">CC Number</th>
                                             <th className="text-center">CVV</th>
                                             <th className="text-center">Exp Date</th>
-
                                             <th className="text-center">rechargeAmount</th>
-
                                         </tr>
                                         </thead>
                                         <tbody className="text-center">
@@ -100,7 +98,6 @@ const ViewPayment = () =>{
                                                 <td>{b.ccNumber}</td>
                                                 <td>{b.cvv}</td>
                                                 <td>{b.expDate}</td>
-
                                                 <td>{b.rechargeAmount}</td>
                                             </tr>
                                         ))}
@@ -111,7 +108,8 @@ const ViewPayment = () =>{
                             </div>
                         </div>
                         </div>
-                    </div></div>
+                    </div>
+                </div>
             </div>
         </div>
 

@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from "react"
 import {useHistory} from "react-router-dom";
 import firebaseapp from "../firebaseDB/firebase";
-// import axios from "axios";
 import '../../src/CSS/Login/Login1.css'
 
 const Login = () => {
@@ -13,8 +12,6 @@ const Login = () => {
 
     useEffect(() => {
 
-
-
     }, [Email]);
 
     const EmailSetter = (e) => {
@@ -24,22 +21,17 @@ const Login = () => {
         setPassword(e.target.value);
     }
 
-
-
     const onSubmit = (e) => {
         if(Email == "0"){
             alert("please enter user name")
         }
         else{
         const list = firebaseapp.database().ref('LocalPassnger').child(Email);
-        // orderByChild("id").startAt(Email);
         const LPList =[];
         console.log(Email)
         console.log(Password)
 
         list.on('value',(snapshot)=>{
-            console.log(snapshot.val().name)
-
             if (Email == "admin" && Password == "123") {
                 his.push('/AdminSideNav');
             }
@@ -55,16 +47,13 @@ const Login = () => {
             else {
                 alert("User name is not valid")
             }
-
         })
         }
-
     }
 
 console.log(lenth)
     return (
         <div>
-
             <div id="login-one" className="login-one">
                 <br /><br />
                 <a className="foodPrices" href={"/"} >
